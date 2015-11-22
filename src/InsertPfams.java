@@ -7,7 +7,6 @@ public class InsertPfams
 
 	public static void main(String[] args) throws Exception
 	{
-		// TODO Auto-generated method stub
 		File file = new File("F:/Data/T3/T3.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
