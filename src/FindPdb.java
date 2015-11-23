@@ -15,7 +15,7 @@ public class FindPdb {
     	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	     String func=null;    	     
+    	     String func=null;    	       
     	     String uniprotId=null;
     	    String filepath="F:/Data/T3/";
     	    String sql="";
