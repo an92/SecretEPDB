@@ -11,7 +11,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
  
-  public class Text {
+  public class InsertPfam {
      public  Document getDocument (String url){
         try {
             return Jsoup.connect(url).get();
@@ -22,14 +22,14 @@ import org.jsoup.select.Elements;
      }
   public static void main(String[] args) throws Exception {
 
-	  Text t = new Text();
+	  InsertPfam t = new InsertPfam();
       String type="";
       String id_1="";
       String start="";
       String end="";
       String pfam_id="";
 	  String driver = "com.mysql.jdbc.Driver";
-	   String url = "jdbc:mysql://localhost:3306/bacteria";
+	   String url = "jdbc:mysql://localhost:3306/secretepdb";
 	    String username = "root";
 	    String password = "admin";
 	    Connection conn = null;
@@ -46,7 +46,7 @@ import org.jsoup.select.Elements;
     } catch (Exception e) {
        System.out.print("MYSQL ERROR:" + e.getMessage());
    }
-	  File file = new File("C:/Users/yia/Data/T4/T4.txt");
+	  File file = new File("C:/Users/yia/Data/T3_blast/T3_blast.txt");
 		 FileReader fr = new FileReader(file);
 		 BufferedReader br = new BufferedReader(fr);
 		 String str = br.readLine();
@@ -76,22 +76,23 @@ import org.jsoup.select.Elements;
 	                 		 id_1=pfam_1[1];
 	                 	     start=pfam_1[2];
 	                 	     end=pfam_1[3];
+	                 	    sql = "select ProteinID from protein where UniprotID=\""+uniprotId+"\";";
+	       				 ResultSet  rs =stmt.executeQuery(sql);
+	       				 if(rs.next()){   
+	       					 pfam_id=rs.getString("ProteinID");
+	       		            }
+	       				 sql1="insert into pfam(PfamProteinId,id,type,start,end)values"
+	           					 + "(\""+ Integer.parseInt(pfam_id) +"\",\""+id_1+"\",\""+type+"\",\""+start+"\",\""+end+"\")";
+	           			 stmt.execute(sql1);
+	       				  System.out.println(Integer.parseInt(pfam_id));
+	       	              System.out.println(type);
+	       	          	  System.out.println(id_1);
+	       	          	  System.out.println(start);
+	       	          	  System.out.println(end);
 	                 	 }
 	                  }
 	             }
-	             sql = "select ProteinID from protein where UniprotID=\""+uniprotId+"\";";
-				 ResultSet  rs =stmt.executeQuery(sql);
-				 if(rs.next()){   
-					 pfam_id=rs.getString("ProteinID");
-		            }
-				 sql1="insert into pfam(PfamProteinId,id,type,start,end)values"
-    					 + "(\""+ Integer.parseInt(pfam_id) +"\",\""+id_1+"\",\""+type+"\",\""+start+"\",\""+end+"\")";
-    			 stmt.execute(sql1);
-				 /* System.out.println(Integer.parseInt(pfam_id));
-	              System.out.println(type);
-	          	  System.out.println(id_1);
-	          	  System.out.println(start);
-	          	  System.out.println(end);*/
+	            
 	        }				
 				str = br.readLine();
 			}
