@@ -12,7 +12,7 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("C:/Users/yia/Data/T3_blast/T3_blast_noreduant.txt");
+		File file = new File("C:/Users/yia/Data/T4data/T4_paper.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -36,14 +36,15 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("C:/Users/yia/Data/T3_blast/" + id + ".fasta");
+		File out = new File("C:/Users/yia/Data/T4data/T4_paper/" + id + ".fasta");
 		if(!out.exists())
 		{
 			
 			System.out.println(out);
 			FileWriter fw = new FileWriter(out);
 			BufferedWriter bw = new BufferedWriter(fw);
-			String url = "http://www.uniprot.org/uniprot/" + id +".txt";
+			String url="http://www.ncbi.nlm.nih.gov/protein/"+id+"?report=fasta";
+			//String url = "http://www.uniprot.org/uniprot/" + id +".txt";
 			System.out.println(url);
 			URL U = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection)U.openConnection();

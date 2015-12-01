@@ -5,13 +5,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-/*找到fasta文件的ID号*/
+/*找到文件的ID号*/
 public class FindID {
 
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		 File file = new File("C:/Users/yia/Data/T3data/T3_blast_noreduant.txt");
+		 File file = new File("C:/Users/yia/Data/T4data/T4_paper.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -24,11 +24,11 @@ public class FindID {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Data/T3data/T3_blast_noreduant.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Data/T4data/T4_paper_full.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 if(s.startsWith(">tr")||s.startsWith(">sp")){
+				 if(s.startsWith(">")){
 					 num++;
 					 String[] str = s.split("\\|");
 					 //System.out.println(str[1]);

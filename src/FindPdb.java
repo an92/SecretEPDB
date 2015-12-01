@@ -10,14 +10,14 @@ import java.sql.Statement;
 public class FindPdb {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "";
+    	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	     String func=null;    	       
-    	     String uniprotId=null;
-    	    String filepath="F:/Data/T3/";
+    	    String strrs="";
+    	    String uniprotId=null;
+    	    String filepath="C:/Users/yia/Data/T3/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -44,16 +44,20 @@ public class FindPdb {
                         	 String s = null;
                         	 while((s = br.readLine()) != null){               	  
                             	 if(s.startsWith("DR")){ 
-                            		 if(s.contains("PDB")){
-                            			 System.out.println(uniprotId);
-                            			 String pdb1 = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
+                            		 if(s.contains("GO")){
+                            			 String[] str=s.split(";");
+                            			 strrs+=str[1].replaceAll(" +","")+"===";
+                            			 /*String pdb1 = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
                                 		 String[] pdb2 = pdb1.split("\\*");   
                                 		 String name2=pdb2[1];
                                 		 String str=name2.substring((name2.indexOf("=")+"=".length()), name2.indexOf(";"));//表protein中Name的值                                		                           		                             			
-                            		 }                   		               		                       		                     			                        		                  		 
+*/                            		
+                            			 }   
                             	} 
                             	       
                             } 
+                        	 System.out.println(uniprotId);
+                        	 System.out.println(strrs);
                         	 		                        	                         	    
                          }	
                                     		
