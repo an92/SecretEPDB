@@ -15,9 +15,8 @@ public class FindPdb {
     	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String strrs="";
     	    String uniprotId=null;
-    	    String filepath="C:/Users/yia/Data/T3/";
+    	    String filepath="C:/Users/yia/Data/T6/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -42,6 +41,7 @@ public class FindPdb {
                         	 BufferedReader  br = new BufferedReader(new FileReader(readfile));
                         	 boolean isName = true;
                         	 String s = null;
+                        	 String strrs="";
                         	 while((s = br.readLine()) != null){               	  
                             	 if(s.startsWith("DR")){ 
                             		 if(s.contains("GO")){
