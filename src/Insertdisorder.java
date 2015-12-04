@@ -39,14 +39,17 @@ public class Insertdisorder {
                  String[] filelist_pred;
                  String str="";
                  String str_1="";
+                 int start;//开始的位置
+                 int end;
+                 String seq="";
                  filelist= new String[file.list().length];
                  filelist_pred= new String[file_pred.list().length]; 
                  filelist=file.list();
                  filelist_pred=file_pred.list();
-                // for (int i = 0; i < filelist.length; i++) { 
-                  for (int i = 0; i < 1; i++) {
-                	 //File readfile = new File(filepath + "\\" + filelist[i]);  
-                	 File readfile = new File("C:/Users/yia/Data/DB_pred/1.pred");  
+                for (int i = 0; i < filelist.length; i++) { 
+                  //for (int i = 0; i < 1; i++) {
+                	 File readfile = new File(filepath + "\\" + filelist[i]);  
+                	// File readfile = new File("C:/Users/yia/Data/DB_pred/1.pred");  
                          if (!readfile.isDirectory())  {
                         	 String ss=readfile.getName();                        	 
                         	 Id=ss.substring(0, ss.indexOf("."));;//表Protein中的ID号
@@ -63,14 +66,12 @@ public class Insertdisorder {
 							str_1 = pred_1.substring(0, pred_1.indexOf("."));
 							if (str_1.equals(Id)) {// 找到相同的文件
 								BufferedReader b = new BufferedReader(new InputStreamReader(new FileInputStream(pred)));
-								byte[] data = new byte[1024];
+								byte[] data = new byte[10240];
 								FileInputStream bbb = new FileInputStream(pred);
 								int a = bbb.read(data);
 								int[][] index = new int[4][2];
-								System.out.println(str_2);
 								String[] str_3 = str_2.split(";");
 								String[][] sstmp = new String[str_3.length-1][2];
-								// String ssss = new String(data,44,150);
 								String[] tmp = new String[str_3.length];
 								for (int q = 0; q < str_3.length - 1; q++) {
 									String stmp = str_3[q];
@@ -78,9 +79,16 @@ public class Insertdisorder {
 								}
 								for (int k = 0; k < sstmp.length; k++) {
 									int dis = Integer.parseInt(sstmp[k][1]) - Integer.parseInt(sstmp[k][0]);
-									String ssss = new String(data, Integer.parseInt(sstmp[k][0]) - 1, dis);
+									String ssss = new String(data, Integer.parseInt(sstmp[k][0]) - 1, dis+1);
 									tmp[k] = ssss;
-									System.out.println(tmp[k]);
+									start=Integer.parseInt(sstmp[k][0]);
+									end=Integer.parseInt(sstmp[k][1]);
+									seq=tmp[k];
+									System.out.print(start);//起始位点
+									System.out.print("---");
+									System.out.println(end);//结束位点
+									System.out.println(seq);//序列
+									System.out.println(Id);//name.序列
 								}
 							}
 						}

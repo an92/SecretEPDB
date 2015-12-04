@@ -33,7 +33,7 @@ public class CountNumbre {
 	     String uniprotId="";
 		BufferedReader br = null;
 		int line = 0;
-		String filename="C:/Users/yia/Data/T6data/T6_paper_NCBI.fasta";
+		String filename="C:/Users/yia/Data/T4data/T4_paper_full.fasta";
 		 try {       
   		   Class.forName(driver);    
   		   conn = DriverManager.getConnection(url, username, password);
@@ -79,11 +79,11 @@ public class CountNumbre {
 				}
 				name=ss[4].substring(0, ss[4].indexOf("["));//name
 				length= Integer.toString(length_1);
-				/*System.out.println(name);
-				System.out.println(seq);
-				System.out.println(length);*/
-				 sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_paper_NCBI\")";
+				System.out.println(name);
+				System.out.println(j);
+				//System.out.println(length);
+				sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
+  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T4_paper_NCBI\")";
   				stmt.execute(sql);
 			}
 			
