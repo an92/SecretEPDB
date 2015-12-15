@@ -15,14 +15,14 @@ import java.util.regex.Pattern;
 public class InsertPdb {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "";
+    	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="F:/Data/T3";
+    	 String filepath="C:/Users/yia/Data/T3_blast";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);
