@@ -12,7 +12,7 @@ public class DwonAlignmentfile
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		String filepath_align="G:/T3_Align/";
+		String filepath_align="C:/Users/yia/Data/Align/T6_Align/";
 		try{
 	   		 File file = new File(filepath_align);
 	   		 System.out.println(file.list().length);
@@ -30,7 +30,6 @@ public class DwonAlignmentfile
                 		while(str!=null)
                 		{
                 			 String ss=readfile.getName(); 
-                			 System.out.println("ds");
                           	 name=ss.substring(0, ss.indexOf("."));
                           	 
                 			 String[] id1=str.split("\n");
@@ -53,7 +52,7 @@ public class DwonAlignmentfile
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("G:/T3_aln_1/" + name + ".fasta");
+		File out = new File("C:/Users/yia/Data/Align/T6_aln_1/" + name + ".fasta");
 			//System.out.println(out);
 			FileWriter fw = new FileWriter(out,true);
 			BufferedWriter bw = new BufferedWriter(fw);

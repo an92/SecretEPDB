@@ -15,8 +15,8 @@ public class FindAlignment {
 
 	public static void main(String[] args) throws Exception {
 		int line = 0;
-		String filepath="G:/T3/";
-		String filepath_align="G:/T3_Align/";
+		String filepath="C:/Users/yia/Data/Align/T6/";
+		String filepath_align="C:/Users/yia/Data/Align/T6_Align/";
 		try{
    		 File file = new File(filepath);
    		 System.out.println(file.list().length);

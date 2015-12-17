@@ -30,9 +30,9 @@ public class RunBlast {
 		  }
 		 }
 	  public static void main(String[] args) throws SQLException, IOException { 
-		  String filepath="C:/Users/yia/Data/Align_T4";	
+		  String filepath="C:/Users/yia/Data/Align_T6";	
 		  //String path="C:\\Users/yia/study/soft/Blast/blast/db";
-		  String filepath_blast="C:/Users/yia/Data/Blast/T4/";
+		  String filepath_blast="C:/Users/yia/Data/Blast/T6/";
 		  File file = new File(filepath);
 		  String name="";
 		  if (file.isDirectory()) {     
