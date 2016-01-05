@@ -11,7 +11,7 @@ public class FindID {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		 File file = new File("C:/Users/yia/Data/T4data/T4_paper.txt");
+		/* File file = new File("C:/Users/yia/Data/T4data/T4_paper.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -20,11 +20,11 @@ public class FindID {
 	      	else if(!file.exists()){
 	      		
 	      		file.createNewFile();
-	      	}
-		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-  		 BufferedWriter bw = new BufferedWriter(fw);
+	      	}*/
+		 //FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+  		 //BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Data/T4data/T4_paper_full.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Downloads/Table S1.txt"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){
@@ -32,12 +32,13 @@ public class FindID {
 					 num++;
 					 String[] str = s.split("\\|");
 					 //System.out.println(str[1]);
-					 array.add(str[1]);
+					 //array.add(str[1]);
 				 }
-			 }           
+			 }  
+			 System.out.println(num);
           br.close();
      }catch(Exception e){       
-     }finally{
+     }/*finally{
           for(int i=0;i<array.size();i++) 
         	  bw.write(array.get(i)+'\t');
               bw.newLine();bw.newLine();
@@ -45,6 +46,6 @@ public class FindID {
 		      bw.flush();
              //System.out.print( + '\r');
 		      bw.close();
-     }
+     }*/
 	}
 }
