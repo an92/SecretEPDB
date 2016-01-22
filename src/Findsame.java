@@ -15,9 +15,9 @@ public class Findsame {
 		 String[] str_1=null;
 		 int num = 0;
 		 int aa=0;
-		String file = "C:/Users/yia/Google 云端硬盘/T3_N_id.txt";
-		String file_1 = "C:/Users/yia/Google 云端硬盘/Id_N.txt";
-		File file_2 = new File("C:/Users/yia/Google 云端硬盘/T3_remove_N.txt");
+		String file = "C:/Users/yia/Google 云端硬盘/Server_Paper/T6_N_id.txt";
+		String file_1 = "C:/Users/yia/Google 云端硬盘/Server_Paper/Training_Id.txt";
+		File file_2 = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/T6_remove_N.txt");
 		List<String> array = new ArrayList<String>();
 		 FileWriter fw = new FileWriter(file_2.getAbsoluteFile(),true);
  		 BufferedWriter bw = new BufferedWriter(fw);
