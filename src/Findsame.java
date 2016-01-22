@@ -15,24 +15,29 @@ public class Findsame {
 		 String[] str_1=null;
 		 int num = 0;
 		 int aa=0;
-		String file = "C:/Users/yia/Data/T6_N_id.txt";
-		String file_1 = "C:/Users/yia/Data/T6_train_id.txt";
+		String file = "C:/Users/yia/Google 云端硬盘/T3_N_id.txt";
+		String file_1 = "C:/Users/yia/Google 云端硬盘/Id_N.txt";
+		File file_2 = new File("C:/Users/yia/Google 云端硬盘/T3_remove_N.txt");
+		List<String> array = new ArrayList<String>();
+		 FileWriter fw = new FileWriter(file_2.getAbsoluteFile(),true);
+ 		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
 			 br = new BufferedReader(new FileReader(file));
 			 br_1 = new BufferedReader(new FileReader(file_1));
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 str=s.split("\t");
+				 str=s.split(",");
 			 }
-			 System.out.println("aaa"+str[1]);
 			 while((s = br_1.readLine()) != null){
-				  str_1=s.split("\t");
+				  str_1=s.split(",");
 			 }
 				 for(int i=0;i<str.length;i++){
 					 for(int j=i;j<str_1.length;j++){
 						 if(str[i].equals(str_1[j])){
 							 aa++;
-							 System.out.println(aa);
+							 array.add(str[i]);
+							 /*System.out.print("aa");
+							 System.out.print(aa);*/
 					 }
 						 
 				 }
@@ -41,6 +46,14 @@ public class Findsame {
           br.close();
      }catch(Exception e){  
     	 System.out.println(e);
-     }
+     } finally{
+	          for(int i=0;i<array.size();i++) 
+	        	  bw.write(array.get(i)+'\t');
+	              bw.newLine();bw.newLine();
+	          	  bw.write("共计有"+num+"个"); 
+			      bw.flush();
+	             //System.out.print( + '\r');
+			      bw.close();
+	     }
 	}
 }
