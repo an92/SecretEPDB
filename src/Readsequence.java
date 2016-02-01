@@ -3,8 +3,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author yia
@@ -16,26 +14,22 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
+		 File file = new File("F:/Google Drive/Server_Paper/data/depedent dataset/T6_seq.txt");
+		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T6_dep.fasta"));
+			 br = new BufferedReader(new FileReader("F:/Google Drive/Server_Paper/data/depedent dataset/T6_dep.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 aa= s.split("\t>");
-				 System.out.println(aa[0]);
-				 
+				 if(s.startsWith(">")){
+					 sequence=br.readLine();
+					 String seq=sequence.substring(0,50);
+					 bw.write(seq);
+					 bw.newLine();
+					 bw.flush();
+				 }
 			 }
-				 for(m=0;m<86;m++){
-					 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/"+ m +".fasta");
-					 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-					 BufferedWriter bw = new BufferedWriter(fw);
-					 
-					 /*bw.write(aa[0]);
-					 bw.flush();*/
-			 }
-				
-			 
-			 
 			 /*if(s.startsWith(" ")){
          		sequence+=s;                            		                        		                  		
                  sequence = sequence.replaceAll(" +","");//去掉所有空格             			
