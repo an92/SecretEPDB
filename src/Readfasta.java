@@ -11,7 +11,7 @@ public class Readfasta {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/T6SE/T6_N_id.txt");
+		/*File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/T6SE/T6_N_id.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -20,11 +20,11 @@ public class Readfasta {
 	      	else if(!file.exists()){
 	      		
 	      		file.createNewFile();
-	      	}
-		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-  		 BufferedWriter bw = new BufferedWriter(fw);
+	      	}*/
+		// FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+  		 //BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/T6SE/T6_dep.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/1.txt"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){

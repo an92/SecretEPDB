@@ -1,5 +1,3 @@
-package delsame;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,6 +7,11 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
 
+/**
+ * @author yia
+ * delete the same form the two files
+ *
+ */
 public class Readfile {
 	public static void main(String[] args) throws Exception {
 //		File file1 = new File("C:\\Users\\leix\\1.txt");
