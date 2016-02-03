@@ -24,11 +24,11 @@ public class FindID {
 		 //FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 //BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Downloads/Table S1.txt"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T4_full.txt"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 if(s.startsWith(">")){
+				 if(s.startsWith(">lpn")){
 					 num++;
 					 String[] str = s.split("\\|");
 					 //System.out.println(str[1]);

@@ -14,10 +14,8 @@ import java.util.HashMap;
  */
 public class Readfile {
 	public static void main(String[] args) throws Exception {
-//		File file1 = new File("C:\\Users\\leix\\1.txt");
-//		File file2 = new File("C:\\Users\\leix\\2.txt");
-		File file1 = new File("C:\\Users\\leix\\test\\trainging_set.fasta");
-		File file2 = new File("C:\\Users\\leix\\test\\T6_N.fasta");
+		File file1 = new File("C:\\Users\\yia\\Google 云端硬盘\\Server_Paper\\data\\T4SE\\T4_dep\\T4Effpred_training set\\1132non-effectors.fasta");
+		File file2 = new File("C:\\Users\\yia\\Google 云端硬盘\\t4_full.txt");
 		read(file1,file2);
 	}
 	
@@ -31,7 +29,7 @@ public class Readfile {
 		HashMap<String, String> texts;
 		int i=0,j=0;
 		 out = new PrintStream(new
-		 FileOutputStream("C:\\Users\\leix\\4.txt"));
+		 FileOutputStream("C:\\Users\\yia\\Google 云端硬盘\\4.txt"));
 		try {
 			in1 = new BufferedReader(new FileReader(f1));
 			in2 = new BufferedReader(new FileReader(f2));

@@ -6,7 +6,7 @@ import java.io.FileWriter;
 
 /**
  * @author yia
- * 按照固定的长度截取sequence长度。
+ * 按照固定的长度截取sequence长度50个序列，（一行）。
  *
  */
 public class Readsequence {
@@ -14,12 +14,12 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("F:/Google Drive/Server_Paper/data/depedent dataset/T6_seq.txt");
+		 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/plogo/T4_full_P.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:/Google Drive/Server_Paper/data/depedent dataset/T6_dep.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/t4_full_P.txt"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
@@ -47,17 +47,6 @@ public class Readsequence {
 		      bw.close();
      }*/
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
