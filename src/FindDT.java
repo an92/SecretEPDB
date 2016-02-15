@@ -1,9 +1,14 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -11,10 +16,20 @@ import java.sql.Statement;
  *根据Uniprot的注释提取时间信息
  */
 public class FindDT {
-    public static void main(String[] args) {       
-    	     String func=null;    	     
-    	     String uniprotId=null;
-    	    String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper\data\depedent dataset";
+    public static void main(String[] args) throws IOException {       
+    	    String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/uniprot/";
+    	    File file_1 = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T4_dep_P_DT.txt");
+   		  List<String> array = new ArrayList<String>();
+   		  if (file_1.exists()) {
+   			file_1.delete();
+   			file_1.createNewFile();
+   			   } 
+   	       	else if(!file_1.exists()){
+   	      		
+   	       	file_1.createNewFile();
+   	      	}
+   		  FileWriter fw = new FileWriter(file_1.getAbsoluteFile(),true);
+     		 BufferedWriter bw = new BufferedWriter(fw);
     	 try{
     		 File file = new File(filepath);
     		 System.out.println(file.list().length);
@@ -26,12 +41,7 @@ public class FindDT {
                 	 String sequence="";    
              	     String names="";
              	     String name="";
-            	     String molecalarweight="";
-            	     String length="";
-            	     String alt="";
-            	     String organism="";
-            	     String gene="";
-            	     String function="";
+            	     String uniprotId="";
             	     String function1="";
                 	 File readfile = new File(filepath + "\\" + filelist[i]);                         
                          if (!readfile.isDirectory())  {
@@ -41,84 +51,33 @@ public class FindDT {
                         	 boolean isName = true;
                         	 String s = null;
                         	 while((s = br.readLine()) != null){               	  
-                            	 if(s.startsWith("DE")){ 
+                            	 if(s.startsWith("DT")){ 
                             		 String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
                             		 String[] name1 = qq.split("\\*");   
                             		 String name2=name1[1];
-                            		 String str=name2.substring((name2.indexOf("=")+"=".length()), name2.indexOf(";"));//表protein中Name的值
                             		 if(isName){                   			
-                            			 name=str;                      		 
+                            			 name=s;                      		 
                                  		 isName = false;
                             		 }                            		                        		                     			
-                                		 names=names+str+";";//表protein中AllName的值         All Names de                 		                       		                     			                        		                  		 
+                                		 names=names+s+";";            		                       		                     			                        		                  		 
                             	}                 	  
-                             	else if(s.startsWith("SQ")){                    		
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
-                            		 String[] Mole = qq.split("\\*");                    		
-                            		 String Moleca=Mole[3];
-                            		 molecalarweight=Moleca.substring(0, Moleca.indexOf("M"));//表protein中MolecalarWeight的值
-                            		 String Len=Mole[2];
-                            		 length=Len.substring(0, Len.indexOf("A"));//表protein中MolecalarWeight的值                      		
-                            	}
-                            	else if(s.startsWith("AC")){
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] alt1= qq.split("\\*");  
-                            		alt=alt1[1];//表Protein中altUniprotACC的值
-                            	}
-                            	else if(s.startsWith("OS")){
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] org= qq.split("\\*");  
-                            		organism=org[1];
-                            	}
-                            	else if(s.startsWith("GN")){
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] gn= qq.split("\\*");  
-                            		String ge=gn[1];
-                            		gene=ge.substring((ge.indexOf("=")+"=".length()), ge.indexOf(";"));//表protein中Gene的值                    		
-                            	}  
-                            	else if(s.startsWith(" ")){
-                            		sequence+=s;                            		                        		                  		
-                                    sequence = sequence.replaceAll(" +","");//去掉所有空格             			
-                            		}
-                            	/*else if(s.startsWith("CC")){                            		
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] fu= qq.split("\\*");  
-                            		String fun=fu[1];                      		 
-                            		func=func+fun;                    		
-                            	}*/                            	 
-                            	else if(s.startsWith("CC")){                            		                           		                            		
-                            		function1+=s;                            		                            		         		                            		
-                            	}
                             	} 
-                        	// System.out.println(function1);
-                        		 /*int begin=func.indexOf(":");
-                        		 int end=func.indexOf("{");
-                         	     function=func.substring(begin+2,end);   */                     			                        	                         	    
-                         }	
-                         if(function1.contains("FUNCTION")){                           			 
-                        	 String fun1 = function1.replaceAll("CC {2,}", " ");//把字符串s中的多个空格替换为*   
-                        	 int begin=fun1.indexOf(":");
-                        	 int end=fun1.indexOf("{");
-                        	 function=fun1.substring(begin+2,end);                          			
-                         }    
-                        System.out.println(function);
-                        System.out.println(sequence);//表protein中Sequence的值
-                        System.out.println(name);//表protein中Name的值
-                        System.out.println(names);  //表protein中allNames的值
-                        System.out.println(molecalarweight);//表protein中的值
-                        System.out.println(length);//表protein中Length的值
-                        System.out.println(alt);//表protein中altUniprotAcc的值
-                        System.out.println(organism);//表protein中Organism的值
-                        System.out.println(gene);//表protein中Gene的值                                                               		
-         			   sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_blast\")";
-         				stmt.execute(sql);
+                         }
+                         array.add(uniprotId+names+",");
                  		// br.close();
                  }	    	    
 			 }          
     	 }catch(Exception e){
-    		 System.out.println(sql);
-    		 
-    	 	}
+    		 System.out.println(e);
+    	 }
+    	 finally{
+             for(int i=0;i<array.size();i++) 
+           	  bw.write(array.get(i)+'\t');
+                 /*bw.newLine();bw.newLine();
+             	  bw.write("共计有"+num+"个"); */
+   		      bw.flush();
+                //System.out.print( + '\r');
+   		      bw.close();
+        }
     }
 }
