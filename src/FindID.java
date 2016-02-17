@@ -11,7 +11,7 @@ public class FindID {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		File file = new File("C:/Users/yia/Google 云端硬盘/type4 un.txt");
+		File file = new File("C:/Users/yia/Google 云端硬盘/effector_P_id.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -24,7 +24,7 @@ public class FindID {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/type4 un.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/S4TE/DataBase/Motif/Homology/effector_db.txt"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){
@@ -39,8 +39,8 @@ public class FindID {
      }catch(Exception e){       
      }finally{
           for(int i=0;i<array.size();i++) 
-        	  bw.write(array.get(i)+'\t');
-              /*bw.newLine();bw.newLine();
+        	  bw.write(array.get(i)+',');
+             /* bw.newLine();bw.newLine();
           	  bw.write("共计有"+num+"个"); */
 		      bw.flush();
              //System.out.print( + '\r');

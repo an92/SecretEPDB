@@ -14,6 +14,7 @@ public class Readnote {
     	 String[] str=null;
     	 String name=null;
     	 String strs=null;
+    	 String strs_1=null;
     	 try{
     		 File file = new File(filepath);  
     		 if (file.isDirectory()) {     
@@ -28,19 +29,18 @@ public class Readnote {
                             	 if(s.startsWith("CC")){     
                             			  strs+=s;
                                 		 }
-                            	 System.out.println(strs);
                             	 }
                             }  
-                         if(strs.contains("Note")){
-                    		 System.out.println(name);
-                    		 not = strs.replaceAll("CC {2,}", " ");//把字符串s中的多个空格替换为* 
-                    		 /*str=not.split("\\*");
-                    		 if(str[1].contains("Type")){
-                    			 System.out.println(name);
-                    		 }*/
-                         }	                        
                  }
     		 }
+    		 if(strs.contains("type IV secretion system")){
+        		 //not = strs.replaceAll("CC {2,}", " ");//把字符串中的多个空格替换为*
+        		 System.out.println(name);
+            	/* int begin=not.indexOf("Note");
+            	 int end=not.indexOf("{");
+            	 strs_1=not.substring(begin+2,end);   */
+            	 //System.out.println(name+strs_1);
+             }	    
     	 }catch(Exception e){  
     		 System.out.println(e);
     	 	}

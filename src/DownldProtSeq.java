@@ -12,7 +12,7 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("C:/Users/yia/Google 云端硬盘/type4 un.txt");
+		File file = new File("C:/Users/yia/Google 云端硬盘/type6 re.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -36,7 +36,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("C:/Users/yia/Google 云端硬盘/type4 un/" + id + ".txt");
+		File out = new File("C:/Users/yia/Google 云端硬盘/type6 re/" + id + ".fasta");
 		if(!out.exists())
 		{
 			
