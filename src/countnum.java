@@ -7,7 +7,7 @@ public class countnum {
 		 BufferedReader br = null;
 		 int num = 0;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/all_T346.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_NCBi.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){

@@ -12,14 +12,14 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("C:/Users/yia/Google 云端硬盘/type6 re.txt");
+		File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_uniprot_id.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
 		while(str!=null)
 		{
 			//str = str.trim();
-			String[] id1=str.split("\t");
+			String[] id1=str.split(",");
 			//String id = str.split("\t");
 			//System.out.println(id);
 			for(int i=0;i<id1.length;i++){
@@ -36,7 +36,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("C:/Users/yia/Google 云端硬盘/type6 re/" + id + ".fasta");
+		File out = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_uniprot/" + id + ".txt");
 		if(!out.exists())
 		{
 			

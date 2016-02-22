@@ -10,14 +10,14 @@ import java.sql.Statement;
 public class ImportData {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
     	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="C:/Users/yia/Data/T3data/T31";
+    	    String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T3/T3_uniprot/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -45,6 +45,11 @@ public class ImportData {
             	     String gene="";
             	     String function="";
             	     String function1="";
+            	     String evidence="";
+            	     String str="";
+            	     int end=0;
+            	     String go_1="";
+            	     String go="";
                 	 File readfile = new File(filepath + "\\" + filelist[i]);                         
                          if (!readfile.isDirectory())  {
                         	 String ss=readfile.getName();                        	 
@@ -57,13 +62,27 @@ public class ImportData {
                             		 String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
                             		 String[] name1 = qq.split("\\*");   
                             		 String name2=name1[1];
-                            		 String str=name2.substring((name2.indexOf("=")+"=".length()), name2.indexOf(";"));//表protein中Name的值
+                            		 if(name2.contains(";")){
+                            			 str=name2.substring((name2.indexOf("=")+"=".length()), name2.indexOf(";"));//表protein中Name的值
+                            		 }
                             		 if(isName){                   			
                             			 name=str;                      		 
                                  		 isName = false;
                             		 }                            		                        		                     			
-                                		 names=names+str+";";//表protein中AllName的值         All Names de                 		                       		                     			                        		                  		 
-                            	}                 	  
+                                		 names=names+str+";";//表protein中AllName的值                  		                       		                     			                        		                  		 
+                            	} 
+                            	 else if(s.startsWith("DR")){                    		
+                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
+                             		 String[] strss = qq.split("\\*");
+                             		 if(strss[1].contains("GO;")){
+                             			  go=strss[1].substring(strss[1].indexOf(";")+2,14);
+                             			 go_1=go_1+go+"===";
+                             		 }
+                             		 if(go_1.endsWith("=")){
+                             			 evidence=go_1.substring(0, go_1.lastIndexOf("=")-2);
+                             		 }
+                             		 
+                             	}
                              	else if(s.startsWith("SQ")){                    		
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*
                             		 String[] Mole = qq.split("\\*");                    		
@@ -74,22 +93,23 @@ public class ImportData {
                             	}
                             	else if(s.startsWith("AC")){
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] alt1= qq.split("\\*");  
+                            		String[] alt1= qq.split("\\*"); 
                             		alt=alt1[1];//表Protein中altUniprotACC的值
                             	}
                             	else if(s.startsWith("OS")){
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] org= qq.split("\\*");  
+                            		String[] org= qq.split("\\*"); 
                             		organism=org[1];
                             	}
                             	else if(s.startsWith("GN")){
+                            		
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
                             		String[] gn= qq.split("\\*");  
                             		String ge=gn[1];
                             		gene=ge.substring((ge.indexOf("=")+"=".length()), ge.indexOf(";"));//表protein中Gene的值                    		
                             	}  
                             	else if(s.startsWith(" ")){
-                            		sequence+=s;                            		                        		                  		
+                            		sequence+=s;    
                                     sequence = sequence.replaceAll(" +","");//去掉所有空格             			
                             		}
                             	/*else if(s.startsWith("CC")){                            		
@@ -110,10 +130,19 @@ public class ImportData {
                          if(function1.contains("FUNCTION")){                           			 
                         	 String fun1 = function1.replaceAll("CC {2,}", " ");//把字符串s中的多个空格替换为*   
                         	 int begin=fun1.indexOf(":");
-                        	 int end=fun1.indexOf("{");
-                        	 function=fun1.substring(begin+2,end);                          			
+                        	 if(fun1.contains("{")){
+                        		 end=fun1.indexOf("{");
+                        	 }
+                        	 else{
+                        		 end=fun1.indexOf(".");
+                        	 }
+                        	  //end=fun1.indexOf("{");
+                        	 function=fun1.substring(begin+2,end);  
+                        	 
                          }    
-                        System.out.println(function);
+                         //System.out.println(evidence);//表protein中Name的值
+                        // System.out.println(names);  
+                        /*System.out.println(function);
                         System.out.println(sequence);//表protein中Sequence的值
                         System.out.println(name);//表protein中Name的值
                         System.out.println(names);  //表protein中allNames的值
@@ -121,15 +150,15 @@ public class ImportData {
                         System.out.println(length);//表protein中Length的值
                         System.out.println(alt);//表protein中altUniprotAcc的值
                         System.out.println(organism);//表protein中Organism的值
-                        System.out.println(gene);//表protein中Gene的值                                                               		
+                        System.out.println(gene);*///表protein中Gene的值                                                               		
          			   sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_blast\")";
+         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_uniprot\")";
          				stmt.execute(sql);
                  		// br.close();
                  }	    	    
 			 }          
     	 }catch(Exception e){
-    		 System.out.println(sql);
+    		 System.out.println(e);
     		 
     	 	}
     }
