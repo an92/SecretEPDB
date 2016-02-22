@@ -17,7 +17,7 @@ public class ImportData {
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T3/T3_uniprot/";
+    	    String filepath="F:/Google Drive/Server_Paper/data/dabase_data/T4/T4_uniprot/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -50,6 +50,7 @@ public class ImportData {
             	     int end=0;
             	     String go_1="";
             	     String go="";
+            	     String os_1="";
                 	 File readfile = new File(filepath + "\\" + filelist[i]);                         
                          if (!readfile.isDirectory())  {
                         	 String ss=readfile.getName();                        	 
@@ -64,6 +65,9 @@ public class ImportData {
                             		 String name2=name1[1];
                             		 if(name2.contains(";")){
                             			 str=name2.substring((name2.indexOf("=")+"=".length()), name2.indexOf(";"));//表protein中Name的值
+                            			 if(str.contains("{")){
+                            				 str=str.substring(0,str.indexOf("{"));
+                            			 }
                             		 }
                             		 if(isName){                   			
                             			 name=str;                      		 
@@ -97,12 +101,9 @@ public class ImportData {
                             		alt=alt1[1];//表Protein中altUniprotACC的值
                             	}
                             	else if(s.startsWith("OS")){
-                            		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
-                            		String[] org= qq.split("\\*"); 
-                            		organism=org[1];
+                            		os_1+=s;
                             	}
                             	else if(s.startsWith("GN")){
-                            		
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
                             		String[] gn= qq.split("\\*");  
                             		String ge=gn[1];
@@ -122,11 +123,15 @@ public class ImportData {
                             		function1+=s;                            		                            		         		                            		
                             	}
                             	} 
-                        	// System.out.println(function1);
-                        		 /*int begin=func.indexOf(":");
-                        		 int end=func.indexOf("{");
-                         	     function=func.substring(begin+2,end);   */                     			                        	                         	    
                          }	
+                         String oos = os_1.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
+                         String[] org= oos.split("\\*");
+                         if(org[1].contains("(")){
+                        	 organism=org[1].substring(0,org[1].indexOf("("));
+                         }
+                         else{
+                        	 organism=org[1];
+                         }
                          if(function1.contains("FUNCTION")){                           			 
                         	 String fun1 = function1.replaceAll("CC {2,}", " ");//把字符串s中的多个空格替换为*   
                         	 int begin=fun1.indexOf(":");
@@ -140,19 +145,19 @@ public class ImportData {
                         	 function=fun1.substring(begin+2,end);  
                         	 
                          }    
-                         //System.out.println(evidence);//表protein中Name的值
-                        // System.out.println(names);  
-                        /*System.out.println(function);
+                        /*System.out.println(evidence);//表protein中Name的值
+                        System.out.println(names);  
+                        System.out.println(function);
                         System.out.println(sequence);//表protein中Sequence的值
                         System.out.println(name);//表protein中Name的值
                         System.out.println(names);  //表protein中allNames的值
                         System.out.println(molecalarweight);//表protein中的值
                         System.out.println(length);//表protein中Length的值
                         System.out.println(alt);//表protein中altUniprotAcc的值
-                        System.out.println(organism);//表protein中Organism的值
-                        System.out.println(gene);*///表protein中Gene的值                                                               		
-         			   sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_uniprot\")";
+*/                        System.out.println(organism);//表protein中Organism的值
+                        //System.out.println(gene);//表protein中Gene的值                                                               		
+         			  sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
+         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_uniprot\")";
          				stmt.execute(sql);
                  		// br.close();
                  }	    	    

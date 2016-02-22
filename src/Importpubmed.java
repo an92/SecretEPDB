@@ -33,7 +33,7 @@ public class Importpubmed {
 	     String uniprotId="";
 		BufferedReader br = null;
 		int line = 0;
-		String filename="C:/Users/yia/Data/Pubmed/T3_Pubmed.fasta";
+		String filename="F:/Google Drive/Server_Paper/data/dabase_data/T6/T6_NCBI.fasta";
 		 try {       
   		   Class.forName(driver);    
   		   conn = DriverManager.getConnection(url, username, password);
@@ -52,7 +52,6 @@ public class Importpubmed {
 					line++;
 				}
 				}
-			System.out.println(line);
  			strss = new String[line];
 			line=0;
 			br = new BufferedReader(new FileReader(filename));
@@ -78,14 +77,20 @@ public class Importpubmed {
 		                length_1++;
 		            }
 				}
-				name=ss[4].substring(0, ss[4].indexOf("["));//name
+				if(ss[4].contains("[")){
+					name=ss[4].substring(0, ss[4].indexOf("["));//name
+				}
+				else{
+					name=ss[4].substring(0, ss[4].indexOf("RecName:")-1);
+				}
 				length= Integer.toString(length_1);
 				System.out.println(name);
 				System.out.println(j);
 				System.out.println(length);
-				/*sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T4_paper_NCBI\")";
-  				stmt.execute(sql);*/
+				System.out.println(seq);
+				sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
+  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_NCBI\")";
+  				stmt.execute(sql);
 			}
 			
 			br.close();
