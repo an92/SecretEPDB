@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class Insertmutation {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
     	    String password = "admin";
     	    Connection conn = null;

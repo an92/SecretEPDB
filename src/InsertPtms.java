@@ -11,14 +11,15 @@ public class InsertPtms {
 
 	public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "";
+    	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="F:/Data/T3/";
+    	    int m=0;
+    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_uniprot";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);
@@ -89,7 +90,7 @@ public class InsertPtms {
                     				 PTMsProteinID=rs.getString("ProteinID");
                     	            }
                     			 System.out.println(Integer.parseInt(PTMsProteinID));
-                    			 sql1="insert into ptms(PTMsProteinID,Position,PTMsPTMType,PTMskinase,PubMeds)values"
+                    			sql1="insert into ptms(PTMsProteinID,Position,PTMsPTMType,PTMskinase,PubMeds)values"
                     					 + "(\""+ Integer.parseInt(PTMsProteinID) +"\",\""+Position+"\",\""+PTMsPTMType+"\",\""+PTMskinase+"\",\""+PubMeds+"\")";
                     			 stmt.execute(sql1);
                         	 }
@@ -106,12 +107,13 @@ public class InsertPtms {
                     				 PTMsProteinID=rs.getString("ProteinID");
                     	            }
                     			 System.out.println(Integer.parseInt(PTMsProteinID));
-                    			 /*sql1="insert into ptms(PTMsProteinID,Position,PTMsPTMType,PTMskinase,PubMeds)values"
+                    			 sql1="insert into ptms(PTMsProteinID,Position,PTMsPTMType,PTMskinase,PubMeds)values"
                     					 + "(\""+ Integer.parseInt(PTMsProteinID) +"\",\""+Position+"\",\""+PTMsPTMType+"\",\""+PTMskinase+"\",\""+pubMeds+"\")";
-                    			 stmt.execute(sql1);*/
+                    			 stmt.execute(sql1);
                         		 
-                        	 }
-                         }	                        
+                        	 }m++;
+                         }
+                         System.out.println(m);
                  }	    	    
 			 }          
     	 }catch(Exception e){  

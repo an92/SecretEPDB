@@ -33,7 +33,7 @@ public class Importpubmed {
 	     String uniprotId="";
 		BufferedReader br = null;
 		int line = 0;
-		String filename="F:/Google Drive/Server_Paper/data/dabase_data/T6/T6_NCBI.fasta";
+		String filename="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_pubmed.fasta";
 		 try {       
   		   Class.forName(driver);    
   		   conn = DriverManager.getConnection(url, username, password);
@@ -89,7 +89,7 @@ public class Importpubmed {
 				System.out.println(length);
 				System.out.println(seq);
 				sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_NCBI\")";
+  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_PubMed\")";
   				stmt.execute(sql);
 			}
 			

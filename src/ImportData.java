@@ -17,7 +17,7 @@ public class ImportData {
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="F:/Google Drive/Server_Paper/data/dabase_data/T4/T4_uniprot/";
+    	    String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_uniprot/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -107,7 +107,13 @@ public class ImportData {
                             		String qq = s.replaceAll(" {2,}", "*");//把字符串s中的多个空格替换为*                   		
                             		String[] gn= qq.split("\\*");  
                             		String ge=gn[1];
-                            		gene=ge.substring((ge.indexOf("=")+"=".length()), ge.indexOf(";"));//表protein中Gene的值                    		
+                            		if(ge.contains("{")){
+                            			gene=ge.substring((ge.indexOf("=")+"=".length()), ge.indexOf("{")-1);
+                            		}
+                            		else{
+                            			gene=ge.substring((ge.indexOf("=")+"=".length()), ge.indexOf(";"));//表protein中Gene的值                    		
+                            		}
+                            		
                             	}  
                             	else if(s.startsWith(" ")){
                             		sequence+=s;    
@@ -145,6 +151,7 @@ public class ImportData {
                         	 function=fun1.substring(begin+2,end);  
                         	 
                          }    
+                         System.out.println(gene);
                         /*System.out.println(evidence);//表protein中Name的值
                         System.out.println(names);  
                         System.out.println(function);
@@ -154,7 +161,7 @@ public class ImportData {
                         System.out.println(molecalarweight);//表protein中的值
                         System.out.println(length);//表protein中Length的值
                         System.out.println(alt);//表protein中altUniprotAcc的值
-*/                        System.out.println(organism);//表protein中Organism的值
+*/                       // System.out.println(organism);//表protein中Organism的值
                         //System.out.println(gene);//表protein中Gene的值                                                               		
          			  sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
          						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_uniprot\")";
