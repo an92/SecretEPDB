@@ -29,7 +29,7 @@ public class Insertadd {
 			String str="SD00001"; 
 			int i;
 			String strs = str.substring(str.indexOf("D")+2); 
-			for(i=0;i<589;i++){
+			for(i=0;i<1182;i++){
 				String ss="";
 				String result = ""+(Integer.parseInt(strs)+i); 
 				int size = 4-result.length(); 

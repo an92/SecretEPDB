@@ -22,7 +22,7 @@ public class InsertPdb {
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="C:/Users/yia/Data/T3_blast";
+    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_uniprot/";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

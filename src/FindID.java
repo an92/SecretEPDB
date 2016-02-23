@@ -24,7 +24,7 @@ public class FindID {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_NCBi.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_paper_uniprot.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){

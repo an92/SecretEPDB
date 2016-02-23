@@ -11,7 +11,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
  
-  public class InsertPfam {
+
+  /**
+ * @author yia
+ *写入pfam
+ */
+public class InsertPfam {
      public  Document getDocument (String url){
         try {
             return Jsoup.connect(url).get();
@@ -46,13 +51,13 @@ import org.jsoup.select.Elements;
     } catch (Exception e) {
        System.out.print("MYSQL ERROR:" + e.getMessage());
    }
-	  File file = new File("C:/Users/yia/Data/T3_blast/T3_blast.txt");
+	  File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T4/T4_NCBI_id.txt");
 		 FileReader fr = new FileReader(file);
 		 BufferedReader br = new BufferedReader(fr);
 		 String str = br.readLine();
 		while(str!=null)
 		{
-			String[] id1=str.split("\t");
+			String[] id1=str.split(",");
 			for(int a=0;a<id1.length;a++){
 				String id=id1[a];
 				length++;

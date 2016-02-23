@@ -19,8 +19,8 @@ public class Insertdisorder {
     	    Connection conn = null;
     	    Statement stmt = null;  	    
     	     String Id=null;
-    	    String filepath="C:/Users/yia/Data/DB_pred";
-    	    String filepath_pred="C:/Users/yia/Data/DB";
+    	    String filepath="C:/Users/yia/VSL2B_pred";
+    	    String filepath_pred="C:/Users/yia/VSL2B";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -39,8 +39,8 @@ public class Insertdisorder {
                  String[] filelist_pred;
                  String str="";
                  String str_1="";
-                 int start;//开始的位置
-                 int end;
+                 int start = 0;//开始的位置
+                 int end=0;
                  String seq="";
                  filelist= new String[file.list().length];
                  filelist_pred= new String[file_pred.list().length]; 
@@ -84,19 +84,19 @@ public class Insertdisorder {
 									start=Integer.parseInt(sstmp[k][0]);
 									end=Integer.parseInt(sstmp[k][1]);
 									seq=tmp[k];
-									System.out.print(start);//起始位点
-									System.out.print("---");
-									System.out.println(end);//结束位点
-									System.out.println(seq);//序列
+									//System.out.print(start);//起始位点
+									//System.out.print("---");
+									//System.out.println(end);//结束位点
+									//System.out.println(seq);//序列
 									System.out.println(Id);//name.序列
+									sql = "insert into disorderprediction(DisorderProteinID,Seq,Start,End,DisorderPredictiorID)values"
+			         						+ "(\""+ Id +"\",\""+seq+"\","+start+","+end+",\"1\")";
+			         				stmt.execute(sql);
 								}
 							}
 						}
 					}
-                         
-         			  /* sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_blast\")";
-         				stmt.execute(sql);*/
+         			
                  		// br.close();
                  }	    	    
 			 }          

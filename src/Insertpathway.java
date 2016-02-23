@@ -12,17 +12,21 @@ import java.util.regex.Pattern;
 
 
  
+/**
+ * @author yia
+ *找到mutation 的KEGG号，并在KEGG数据库上进行查找
+ */
 public class Insertpathway {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
-    	    String url = "jdbc:mysql://localhost:3306/bacteria";
+    	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "";
+    	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="F:/Data/T3_blast";
+    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_uniprot";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);
@@ -47,13 +51,13 @@ public class Insertpathway {
                             	 if(s.startsWith("DR")){     
                             			 String mut1 = s.replaceAll("FT {2,}", "*");//把字符串s中的多个空格替换为*
                                 		 mut+=mut1;
-                                			 /*sql = "select ProteinID from protein where UniprotID=\""+uniprotId+"\";";
+                                		sql = "select ProteinID from protein where UniprotID=\""+uniprotId+"\";";
                                 			 ResultSet  rs =stmt.executeQuery(sql);
                                 			 if(rs.next()){   
                                 				 protein_id=rs.getString("ProteinID");
                                 	            }
-                                			 System.out.println(Integer.parseInt(protein_id));*/
-                                			/* sql1="insert into pdb(PDBProteinID,PDBAcc,Method,Resolution,Chains)values"
+                                			 //System.out.println(Integer.parseInt(protein_id));
+                                			/*sql1="insert into pdb(PDBProteinID,PDBAcc,Method,Resolution,Chains)values"
                                 					 + "(\""+ Integer.parseInt(protein_id) +"\",\""+acc+"\",\""+method+"\",\""+resolution+"\",\""+chains+"\")";
                                 			 stmt.execute(sql1);*/
                                 		 	}

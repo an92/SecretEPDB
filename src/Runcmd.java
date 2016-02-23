@@ -52,7 +52,7 @@ public class Runcmd {
 		              String[] str=arr[i].split(";");
 			          String strss=str[0];//Id
 			          String str_1=str[1];//sequence
-			          BufferedWriter bw = new BufferedWriter(new FileWriter("C:/Users/yia/Downloads/DB/" + strss + ".fasta"));
+			          BufferedWriter bw = new BufferedWriter(new FileWriter("C:/Users/yia/VSL2B/" + strss + ".fasta"));
 			          bw.write(str_1);
 			      	  bw.close();
 		          }  
@@ -73,8 +73,8 @@ public class Runcmd {
 		 }
 	  public static void main(String[] args) throws SQLException, IOException { 
 		  mysqlConnection();
-		  String filepath="C:/Users/yia/Downloads/DB/";	
-		  String filepath_pred="C:\\Users/yia/Downloads/DB_pred/";
+		  String filepath="C:/Users/yia/VSL2B/";	
+		  String filepath_pred="C:\\Users/yia/VSL2B_pred/";
 		  File file = new File(filepath);
 		  String name="";
 		  if (file.isDirectory()) {     
