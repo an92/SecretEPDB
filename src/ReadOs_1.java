@@ -20,7 +20,7 @@ public class ReadOs_1 {
     	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="C:/Users/yia/Data/Os.csv";
+    	    String filepath="C:/Users/yia/Os.csv";
     	    String ID="";
     	    String sql="";
     	    int n=0;
@@ -34,13 +34,16 @@ public class ReadOs_1 {
              System.out.print("MYSQL ERROR:" + e.getMessage());
          }
     	 sql="select Organism from protein";
+    	 System.out.println(sql);
     	 ResultSet rs = stmt.executeQuery(sql);
     	  while(rs.next()){
     	    ID = rs.getString(1);
-    	    writer.write(ID);
-    	    writer.newLine();
-    	    n++;
-    	    writer.flush();
+    	    if(ID!=null){
+    	    	 writer.write(ID);
+    	    	    writer.newLine();
+    	    	    n++;
+    	    	    writer.flush();
+    	    }
     	  }
     	  System.out.println(n);
     }
