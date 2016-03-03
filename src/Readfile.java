@@ -9,13 +9,13 @@ import java.util.HashMap;
 
 /**
  * @author yia
- * delete the same form the two files
+ * delete the same from the two files
  *
  */
 public class Readfile {
 	public static void main(String[] args) throws Exception {
-		File file1 = new File("C:\\Users\\yia\\Google 云端硬盘\\Server_Paper\\data\\T4SE\\T4_dep\\T4Effpred_training set\\1132non-effectors.fasta");
-		File file2 = new File("C:\\Users\\yia\\Google 云端硬盘\\t4_full.txt");
+		File file1 = new File("C:\\Users\\yia\\Downloads\\T6_effectpr_SERCT6.fasta");
+		File file2 = new File("C:\\Users\\yia\\Google 云端硬盘\\Server_Paper\\data\\dabase_data\\all_T6.txt");
 		read(file1,file2);
 	}
 	
@@ -29,7 +29,7 @@ public class Readfile {
 		HashMap<String, String> texts;
 		int i=0,j=0;
 		 out = new PrintStream(new
-		 FileOutputStream("C:\\Users\\yia\\Google 云端硬盘\\4.txt"));
+		 FileOutputStream("C:\\Users\\yia\\Google 云端硬盘\\findsame.txt"));
 		try {
 			in1 = new BufferedReader(new FileReader(f1));
 			in2 = new BufferedReader(new FileReader(f2));

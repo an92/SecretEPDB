@@ -14,17 +14,18 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/plogo/data/T6_dep_P_50.txt");
+		 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/plogo/data/all_T6_C_50.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/plogo/data/T6_dep_P.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/all_T6.txt"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 sequence=br.readLine();
-					 String seq=sequence.substring(0,50);
+					 int length=sequence.length();
+					 String seq=sequence.substring(length-50,length);
 					 bw.write(seq);
 					 bw.newLine();
 					 bw.flush();

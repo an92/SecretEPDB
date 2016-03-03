@@ -14,8 +14,8 @@ public class Findsame {
 		 String[] str=null;
 		 String[] str_1=null;
 		 int aa=0;
-		String file = "C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T3/T3_uniprot_id.txt";
-		String file_1 = "C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T3/BEAN2.0_id.txt";
+		String file = "C:/Users/yia/Google 云端硬盘/test.txt";
+		String file_1 = "C:/Users/yia/Google 云端硬盘/test_target.txt";
 		/*String file = "C:/Users/yia/11.txt";
 		String file_1 = "C:/Users/yia/22.txt";*/
 		 try{

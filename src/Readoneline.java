@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class Readoneline {
 	    public static void main(String[] args) throws IOException {  
-	    	File file_write = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T4/T4_one_P.txt");
+	    	File file_write = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/all_T6.txt");
 			 List<String> array = new ArrayList<String>();
 			 if (file_write.exists()) {
 		      		file_write.delete();
@@ -25,12 +25,12 @@ public class Readoneline {
 			 FileWriter fw = new FileWriter(file_write.getAbsoluteFile(),true);
 	  		 BufferedWriter bw = new BufferedWriter(fw);
 	    	 try{
-	    		 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T4/T4_new_dep_P.fasta");
+	    		 File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/all_T6.fasta");
 	             BufferedReader  br = new BufferedReader(new FileReader(file));
 	             String s = null;
 	             String ss="";
 	             String[] str;
-	             str= new String[58];
+	             str= new String[1000];
 	             int i=0;
 	             while((s = br.readLine())!= null){               	  
 	            	 if((s.startsWith(">"))){
