@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * @author yia
- *从数据库中读取数据，并使用jar文件运行，写成不同的文件，使用java程序运行cmd程序
+ *从数据库中读取数据，并使用jar文件运行，写成不同的文件，使用java程序运行cmd程序,该程序是使用的VSL2B工具。
  */
 public class Runcmd {
 	

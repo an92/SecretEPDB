@@ -22,7 +22,7 @@ public class InsertPdb {
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_uniprot/";
+    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot/";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);
@@ -60,10 +60,10 @@ public class InsertPdb {
                                 			 resolution=pdb4[3];
                                 			 chains=pdb4[4];
                                 			 //System.out.println(uniprotId);
-                                			/* System.out.print(acc);
+                                			System.out.print(acc);
                                 			 System.out.print(method);
                                 			 System.out.print(resolution);
-                                			 System.out.println(chains);*/
+                                			 System.out.println(chains);
                                 			 sql = "select ProteinID from protein where UniprotID=\""+uniprotId+"\";";
                                 			 ResultSet  rs =stmt.executeQuery(sql);
                                 			 if(rs.next()){   
