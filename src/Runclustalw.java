@@ -20,9 +20,9 @@ public class Runclustalw {
 		 }
 	  public static void main(String[] args) throws SQLException, IOException { 
 		  BufferedReader br = null;
-		  String filepath="C:/Users/yia/Data/Align/T6_aln_1/";	
+		  String filepath="C:\\Users\\yia\\Clustal\\Aln\\T6_fasta\\";	
 		  //String path="C:\\Users/yia/study/soft/Blast/blast/db";
-		  String filepath_blast="C:/Users/yia/Data/Align/T6_aln/";
+		  String filepath_blast="C:/Users/yia/Clustal/Aln/T6_aln/";
 		  File file = new File(filepath);
 		  String name="";
 		  int num=0;
