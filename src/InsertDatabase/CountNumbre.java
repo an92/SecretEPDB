@@ -1,4 +1,4 @@
-package Readfile;
+package InsertDatabase;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.sql.Connection;

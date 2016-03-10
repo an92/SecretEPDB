@@ -17,7 +17,7 @@ import java.util.List;
  * @author yia
  *从数据库中读取数据，并使用jar文件运行，写成不同的文件，使用java程序运行cmd程序,该程序是使用的VSL2B工具。
  */
-public class Runcmd {
+public class RunVSL2B {
 	
 	public static void mysqlConnection() throws SQLException, IOException{  //从数据库中读取数据并生成了文件
 		String driver = "com.mysql.jdbc.Driver";
