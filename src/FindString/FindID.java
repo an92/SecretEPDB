@@ -12,7 +12,7 @@ public class FindID {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot.txt");
+		File file = new File("C:/Users/yia/all_T3_ID.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -25,7 +25,7 @@ public class FindID {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot.fasta"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/all_T3.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){
