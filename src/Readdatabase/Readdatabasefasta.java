@@ -11,7 +11,7 @@ import java.sql.Statement;
 
 /**
  * @author yia
- *读取数据库并将其序列
+ *读取数据库并将其序列输出
  */
 public class Readdatabasefasta {
     public static void main(String[] args) throws SQLException, IOException {       
