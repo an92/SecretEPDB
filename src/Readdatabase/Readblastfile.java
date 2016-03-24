@@ -15,7 +15,7 @@ public class Readblastfile {
 		 int num = 0;
 		 String id="";
 		 try{
-			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Clustal\\all_fasta_blast.txt"));
+			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Google Drive\\append/append_blast.txt"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 					 num++;
@@ -23,7 +23,7 @@ public class Readblastfile {
 					 id=str[0];//这是数据库 的ID号。
 					 System.out.println(id);
 					 //System.out.println(str[5]);
-					 File out = new File("C:\\Users\\yia\\Clustal\\Aln\\" + id + ".txt");
+					 File out = new File("C:\\Users\\yia\\Google Drive\\append\\Aln\\" + id + ".txt");
 					 FileWriter fw = new FileWriter(out,true);
 					 BufferedWriter bw = new BufferedWriter(fw);
 					 if(!out.exists())

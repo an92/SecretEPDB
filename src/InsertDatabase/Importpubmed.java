@@ -28,7 +28,7 @@ public class Importpubmed {
 	     String uniprotId="";
 		BufferedReader br = null;
 		int line = 0;
-		String filename="C:/Users/yia/Google 云端硬盘/Server_Paper/data/dabase_data/T6/T6_pubmed.fasta";
+		String filename="C:/Users/yia/Google Drive/append/T6-new_pubmed.txt";
 		 try {       
   		   Class.forName(driver);    
   		   conn = DriverManager.getConnection(url, username, password);
@@ -74,10 +74,12 @@ public class Importpubmed {
 				}
 				if(ss[4].contains("[")){
 					name=ss[4].substring(0, ss[4].indexOf("["));//name
+					organism = ss[4].substring(ss[4].indexOf("[")+1, ss[4].indexOf("]"));//organism
 				}
 				else{
 					name=ss[4].substring(0, ss[4].indexOf("RecName:")-1);
 				}
+				
 				length= Integer.toString(length_1);
 				System.out.println(name);
 				System.out.println(j);

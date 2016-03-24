@@ -14,7 +14,7 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\Google Drive\\Server_Paper\\data\\database_data\\T3\\T3_uniprot.txt");
+		File file = new File("C:/Users/yia/Google 云端硬盘/appendUniprot/ID.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -38,7 +38,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:\\Google Drive\\Server_Paper\\data\\database_data\\T3\\T3_uniprot/" + id + ".txt");
+		File out = new File("C:/Users/yia/Google 云端硬盘/appendUniprot/" + id + ".txt");
 		if(!out.exists())
 		{
 			

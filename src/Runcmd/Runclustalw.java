@@ -21,7 +21,7 @@ public class Runclustalw {
 		 }
 	  public static void main(String[] args) throws SQLException, IOException { 
 		  BufferedReader br = null;
-		  String filepath="C:\\Users\\yia\\Clustal\\Aln_fasta\\";	
+		  String filepath="C:\\Users\\yia\\Clustal\\Aln_fasta\\";	//文件必须放到该yia目录下
 		  //String path="C:\\Users/yia/study/soft/Blast/blast/db";
 		  String filepath_blast="C:/Users/yia/Clustal/Aln_clustalw/";
 		  File file = new File(filepath);

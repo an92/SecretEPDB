@@ -16,8 +16,8 @@ import java.sql.Statement;
  */
 public class Readpathname {
 	public static void main(String[] args) throws IOException { 
-		/*String filepath="C:/Users/Ay/Downloads/ALn_clustalw"; //找到有Aln的文件
-		String file_1="C:/Users/Ay/Downloads/flag.txt";
+		/*String filepath="C:/Users/yia/Google Drive/append/Aln"; //找到有Aln的文件
+		String file_1="C:/Users/yia/Google Drive/append/flag_fasta.txt";
 		BufferedWriter writer = new BufferedWriter(new FileWriter(new File(file_1), true));
 		File file = new File(filepath);
 		if (file.isDirectory()) {     
@@ -43,7 +43,7 @@ public class Readpathname {
 	    String password = "admin";
 	    Connection conn = null;
 	    Statement stmt = null;  	    
-	    String filepath="C:/Users/Ay/Downloads/flag.txt";
+	    String filepath="C:/Users/yia/Google Drive/append/flag_clu.txt";
 	    String sql="";
 	    String[] str=null;
 	    int n=0;
@@ -61,7 +61,7 @@ public class Readpathname {
 		 while((s = br.readLine()) != null){
 				  str = s.split(",");
 		 }  
-		 sql="update protein set flagClustAln=0";
+		 sql="update protein set flagClustAln=0 where ProteinID > 1124";
     	 boolean rs = stmt.execute(sql);
 		 for(int j=0;j<str.length;j++){
 			sql="update protein set flagClustAln=1 where ProteinID=\""+str[j]+"\";";

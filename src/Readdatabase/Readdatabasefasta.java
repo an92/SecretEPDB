@@ -21,7 +21,7 @@ public class Readdatabasefasta {
     	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="C:/Users/yia/all_fasta.txt";
+    	    String filepath="C:/Users/yia/Google Drive/append/append.txt";
     	    String sql="";
     	    int n=0;
       	    BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filepath), true));
@@ -33,7 +33,7 @@ public class Readdatabasefasta {
          } catch (Exception e) {
              System.out.print("MYSQL ERROR:" + e.getMessage());
          }
-    	 sql="select ProteinId,UniprotId,Sequence from protein";
+    	 sql="select ProteinID,UniprotID,Sequence from protein";
     	 ResultSet rs = stmt.executeQuery(sql);
     	 String proteinID="";
  	     String uniprotID="";

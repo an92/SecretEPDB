@@ -13,7 +13,7 @@ public class Readblastid
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		String filepath="C:\\Users\\yia\\Clustal\\Aln\\";
+		String filepath="C:\\Users\\yia\\Google Drive\\append\\Aln\\";
 		File file = new File(filepath);
 		 if (file.isDirectory()) {     
 			 String[] filelist;
@@ -40,7 +40,7 @@ public class Readblastid
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("C:\\Users\\yia\\Clustal\\Aln_fasta\\" + name + ".fasta");
+		File out = new File("C:\\Users\\yia\\Google Drive\\append\\Aln_fasta\\" + name + ".fasta");
 			FileWriter fw = new FileWriter(out,true);
 			BufferedWriter bw = new BufferedWriter(fw);
 			String url = "http://www.uniprot.org/uniprot/" + id +".fasta";

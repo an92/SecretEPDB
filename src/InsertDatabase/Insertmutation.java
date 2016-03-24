@@ -48,7 +48,7 @@ public class Insertmutation {
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot";
+    	 String filepath="C:/Users/yia/Google Drive/appendUniprot/annotation";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

@@ -7,7 +7,6 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
- 
 public class ImportData {
     public static void main(String[] args) {       
     	    String driver = "com.mysql.jdbc.Driver";
@@ -18,7 +17,7 @@ public class ImportData {
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="F:\\Google Drive\\Server_Paper\\data\\database_data\\T3\\T3_uniprot/";
+    	    String filepath="C:/Users/yia/Google Drive/appendUniprot/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -165,7 +164,7 @@ public class ImportData {
 */                       // System.out.println(organism);//表protein中Organism的值
                         //System.out.println(gene);//表protein中Gene的值                                                               		
          			  sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T3_uniprot\")";
+         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T\")";
          				stmt.execute(sql);
                  		// br.close();
                  }	    	    

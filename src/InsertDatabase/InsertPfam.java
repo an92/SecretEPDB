@@ -52,7 +52,7 @@ public class InsertPfam {
     } catch (Exception e) {
        System.out.print("MYSQL ERROR:" + e.getMessage());
    }
-	  File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot.txt");
+	  File file = new File("C:/Users/yia/Google Drive/appendUniprot/ID.txt");
 		 FileReader fr = new FileReader(file);
 		 BufferedReader br = new BufferedReader(fr);
 		 String str = br.readLine();
