@@ -21,7 +21,7 @@ public class Readdatabasefasta {
     	    String password = "admin";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="C:/Users/yia/Google Drive/append/append.txt";
+    	    String filepath="C:/Users/yia/append-fasta.txt";
     	    String sql="";
     	    int n=0;
       	    BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filepath), true));
