@@ -8,7 +8,7 @@ public class Countnum {
 		 BufferedReader br = null;
 		 int num = 0;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google Drive/BIB/data/plogo/15.4/11.txt"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/T6.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){

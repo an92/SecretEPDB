@@ -12,7 +12,7 @@ public class Readfasta {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int num = 0;
-		File file = new File("C:/Users/yia/Google 云端硬盘/Server_Paper/data/T4_full_id.txt");
+		File file = new File("C:/Users/yia/Google Drive/BIB/data/plogo/15.4/4_ID.txt");
 		 List<String> array = new ArrayList<String>();
 		 if (file.exists()) {
 	      		file.delete();
@@ -25,7 +25,7 @@ public class Readfasta {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
   		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google 云端硬盘/Server_Paper/data/depedent dataset/T4_full.txt"));
+			 br = new BufferedReader(new FileReader("C:/Users/yia/Google Drive/BIB/data/depedent dataset/T4/T4_new_dep_P.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
