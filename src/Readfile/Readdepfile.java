@@ -22,12 +22,13 @@ public class Readdepfile {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
+		 String str[]=null;
 		 try{
 			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Google Drive\\T6-dep.fa"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				     if(s.startsWith(">")){
-				    	 String str[] = s.split("\t");
+				    	  str = s.split("\t");
 				     }
 				     flag=str[2];
 					 String seq_1[] = br.readLine().split("\t");
