@@ -15,19 +15,19 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("C:/Users/yia/Google Drive/BIB/data/plogo/15.4/T3_N.txt");
+		 File file = new File("C:\\Users\\yia\\Downloads\\neg-C-50.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google Drive/BIB/data/plogo/15.4/T3_P-dep.fasta"));
+			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Downloads\\T4_train_final_neg.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 sequence=br.readLine();
-					/* int length=sequence.length();
-					 String seq=sequence.substring(length-50,length);*/
-					 String seq=sequence.substring(0,50);
+					 int length=sequence.length();
+					 String seq=sequence.substring(length-50,length);
+					 //String seq=sequence.substring(0,50);
 					 bw.write(seq);
 					 bw.newLine();
 					 bw.flush();
