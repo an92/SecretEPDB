@@ -16,14 +16,14 @@ public class CountLength {
 		 int m = 0;
 		 String ss=null;
 		 String seq=null;
-		 File file = new File("C:/Users/yia/Google Drive/BIB/data/depedent dataset/T4_length.txt");
+		 File file = new File("F:/T6_p.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google Drive/BIB/data/depedent dataset/T4_dep/T4_new_dep_40.fasta"));
+			 br = new BufferedReader(new FileReader("F:/T6_1.fasta"));
 			 String s = null;
-			 while((s = br.readLine()) != null){
+			 /*while((s = br.readLine()) != null){
 				 if(s.startsWith(">") & s.endsWith("|1|")){
 					 seq=br.readLine();
 					 int n=seq.length();
@@ -38,7 +38,17 @@ public class CountLength {
 					 bw.newLine();
 					 bw.flush();	 
 					
+				 }*/
+			 while((s = br.readLine()) != null){
+				 if(s.startsWith(">")){
+					 seq=br.readLine();
+					 int n=seq.length();
+					 ss="Positive,"+n;
 				 }
+				 bw.write(ss);
+				 bw.newLine();
+				 bw.flush();	
+			 }
           br.close();
      }catch(Exception e){  
     	 System.out.println(e);

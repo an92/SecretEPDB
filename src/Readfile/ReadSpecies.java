@@ -7,28 +7,38 @@ import java.io.FileWriter;
 
 /**
  * @author yia
- * 按照固定的长度截取sequence长度50个序列，（一行）。
+ * 从fasta文件中读取到bacterial species.
  *
  */
-public class Readsequence {
+public class ReadSpecies {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("F:\\Google Drive\\Bastion4\\Coxiella burnetii-N-50.fasta");
+		 File file = new File("F:\\species.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
+		 String[] bb=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\Google Drive\\Bastion4\\Coxiella burnetii.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\Google Drive\\Information\\jiawei_infor\\T4_train_final_pos.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 if(s.startsWith(">")){
-					 sequence=br.readLine();
-					 //int length=sequence.length();
-					 //String seq=sequence.substring(length-50,length);
-					 String seq=sequence.substring(0,50);
-					 bw.write(seq);
+				 if(s.startsWith(">gi")){
+					 aa=s.split("\\|");
+					 //sequence=br.readLine();
+//					 int length=sequence.length();
+					 String sp=aa[4].substring(aa[4].indexOf("["));					
+					 bw.write(sp);
+					 bw.newLine();
+					 bw.flush();
+				 }
+				 else if(s.startsWith(">sp")||s.startsWith(">tr")){
+					 bb=s.split("\\|");
+					 //sequence=br.readLine();
+//					 int length=sequence.length();
+					 String sp=bb[2].substring(bb[2].indexOf("="));					
+					 bw.write(sp);
 					 bw.newLine();
 					 bw.flush();
 				 }
