@@ -8,7 +8,7 @@ public class Countnum {
 		 BufferedReader br = null;
 		 int num = 0;
 		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/T6.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\Google Drive\\SecretEPDB\\tools\\database_data\\T6\\T6.fasta"));
 			 
 			 String s = null;
 			 while((s = br.readLine()) != null){

@@ -19,12 +19,12 @@ public class CountSingle {
 		 int m = 0;
 		 String ss=null;
 		 String seq=null;
-		 File file = new File("C:/Users/yia/Google Drive/BIB/data/depedent dataset/T6_dep/T6_dep_Aid.txt");
+		/* File file = new File("F:/T6.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-		 BufferedWriter bw = new BufferedWriter(fw);
+		 BufferedWriter bw = new BufferedWriter(fw);*/
 		 String[] aa=null;
-		 try{
-			 br = new BufferedReader(new FileReader("C:/Users/yia/Google Drive/BIB/data/depedent dataset/T6_dep/T6_dep-P.fasta"));
+		/* try{
+			 br = new BufferedReader(new FileReader("F:/T6_1.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
@@ -38,11 +38,11 @@ public class CountSingle {
           br.close();
      }catch(Exception e){  
     	 System.out.println(e);
-     }
-		/* File file = new File("C:/Users/yia/Google Drive/BIB/data/T4_P_amion acids.txt");
+     }*/
+		 File file = new File("F:/T6_P_amion acids.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
-		 String filename="C:/Users/yia/Google Drive/BIB/data/depedent dataset/T4_dep/T4_dep_Aid.txt";
+		 String filename="F:/T6.txt";
 		 bw.write(String.valueOf(count(filename, "A")));
 		 bw.newLine();
 		 bw.flush();
@@ -84,7 +84,7 @@ public class CountSingle {
 		 bw.newLine();
 		 bw.write(String.valueOf(count(filename, "V")));
 		 bw.newLine();
-		 bw.flush();*/
+		 bw.flush();
 	 }
 
 public static int count(String filename, String target)   throws FileNotFoundException, IOException {  
