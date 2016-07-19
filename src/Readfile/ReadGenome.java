@@ -6,9 +6,12 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
 
 
+/**
+ * @author yia
+ *该程序是读出Genome文件中蛋白质的信息
+ */
 public class ReadGenome {
 	public static void main(String[] args) throws IOException {       
     	   BufferedReader br = null;
@@ -72,6 +75,46 @@ public class ReadGenome {
     	    	}
 
     	    }
+	
     	
+	/*try {
+		File f = new File("./Runlog.log");
+		FileInputStream fin;
+		fin = new FileInputStream(f);
+		InputStreamReader inputStreamReader = new InputStreamReader(fin);
+		BufferedReader read = new BufferedReader(inputStreamReader);
+		String lineContent = "";
+		String s = "";
+		BufferedReader newread=new BufferedReader(read);
+		int flg=-1;
+		while ((lineContent = read.readLine()) != null) {
+			if (lineContent.startsWith("processing:")) {
+				if (flg == -1) {
+					flg = 0;
+				}else if(flg==0){
+					//do something
+					
+					System.out.println(s);
+					s = "";
+				}
+			}
+			if (flg == 0) {
+				s+=lineContent;
+			}
+		}
+		//do something
+		
+		System.out.println(s);
+		
+		
+		read.close();
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}*/ //另一种读出CDS片段的方法
+
     }
+
+
+
 

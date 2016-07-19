@@ -15,13 +15,13 @@ public class ReadSpecies {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("F:\\species.txt");
+		 File file = new File("C:\\Users\\yia\\species.csv");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 String[] bb=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\Google Drive\\Information\\jiawei_infor\\T4_train_final_pos.fasta"));
+			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\111.txt"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">gi")){
