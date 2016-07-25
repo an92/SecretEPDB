@@ -7,7 +7,7 @@ import java.io.FileWriter;
 
 /**
  * @author yia
- * 按照固定的长度截取sequence长度50个序列，（一行）。
+ * 按照固定的长度截取sequence长度50个序列。
  *
  */
 public class Readsequence {
@@ -15,22 +15,22 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("C:\\Users\\yia\\Downloads\\neg-C-50.txt");
+		 File file = new File("C:\\Users\\yia\\Google Drive\\BIB\\data\\control\\control-seq-C.fasta");
 		 //File file = new File("F:\\Google Drive\\Bastion4\\Coxiella burnetii-N-50.fasta");
 
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\Google Drive\\Bastion4\\Coxiella burnetii.fasta"));
+			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Google Drive\\BIB\\data\\control\\controlremove50.fasta"));
 
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 sequence=br.readLine();
-					 //int length=sequence.length();
-					 //String seq=sequence.substring(length-50,length);
-					 String seq=sequence.substring(0,50);
+					 int length=sequence.length();
+					 String seq=sequence.substring(length-50,length);
+					 //String seq=sequence.substring(0,50);
 					 bw.write(seq);
 					 bw.newLine();
 					 bw.flush();
