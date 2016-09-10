@@ -7,36 +7,32 @@ import java.io.FileWriter;
 
 /**
  * @author yia
- * 读出每个序列的长度，分为正负样本
+ * 读出每个序列的长度,不分正负样本
  *
  */
-public class CountLength {
+public class CountLengthAll {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int m = 0;
 		 String ss=null;
 		 String seq=null;
-		 File file = new File("F:/Google Drive/control.fasta.txt");
+		 File file = new File("F:/Google Drive/control.csv");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
+		 int n=0;
 		 try{
 			 br = new BufferedReader(new FileReader("F:/Google Drive/control.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
-				 if(s.startsWith(">") & s.endsWith("|1|")){
+				 if(s.startsWith(">") ){
 					 seq=br.readLine();
-					 int n=seq.length();
-					 ss="Positive,"+n;
+					 n=seq.length();
+					 ss = "Length,"+n;
 				 }
-				 else if(s.startsWith(">") & s.endsWith("|-1|")){
-					 seq=br.readLine();
-					 int n=seq.length();
-					 ss="Negative,"+n;
-				 }
-					 bw.write(ss);
+				 bw.write(ss);
 					 bw.newLine();
-					 bw.flush();	 
+					 bw.flush();	
 					
 				 }
           br.close();

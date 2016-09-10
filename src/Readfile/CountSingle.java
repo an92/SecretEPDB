@@ -17,14 +17,14 @@ public class CountSingle {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 int m = 0;
-		 String ss=null;
+		 /*String ss=null;
 		 String seq=null;
-		/* File file = new File("F:/T6.txt");
+		File file = new File("F:/Google Drive/control-seq.fasta");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-		 BufferedWriter bw = new BufferedWriter(fw);*/
+		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
-		/* try{
-			 br = new BufferedReader(new FileReader("F:/T6_1.fasta"));
+		try{
+			 br = new BufferedReader(new FileReader("F:/Google Drive/control.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
@@ -39,10 +39,10 @@ public class CountSingle {
      }catch(Exception e){  
     	 System.out.println(e);
      }*/
-		 File file = new File("F:/T6_P_amion acids.txt");
+		 File file = new File("F:/Google Drive/control-length.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
-		 String filename="F:/T6.txt";
+		 String filename="F:/Google Drive/control-seq.fasta";
 		 bw.write(String.valueOf(count(filename, "A")));
 		 bw.newLine();
 		 bw.flush();
