@@ -7,10 +7,10 @@ import java.net.URL;
 
 /**
  * @author yia
- * 从UnipProt 中下载注释的文件，放到一个文件夹中。
+ * 从UnipProt 中下载fasta文件。
  *
  */
-public class DownldProtSeq
+public class DownloadFastaSeq
 {
 
 	public static void main(String[] args) throws Exception
@@ -20,6 +20,7 @@ public class DownldProtSeq
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
+		
 		while(str!=null)
 		{
 			//str = str.trim();
@@ -33,6 +34,15 @@ public class DownldProtSeq
 				str = br.readLine();
 			}
 		}
+    		/* br_write = new BufferedReader(new FileReader("F:\\Google Drive\\SecretEPDB\\NewData\\T3SE\\fasta\\24391954.fasta"));
+			 String s = null;
+			 while((s = br.readLine()) != null){
+				 if(s.startsWith(">")){
+					 bwwrite.write(content);
+					 //bw.newLine();
+					 bw_write.flush();	 
+					
+				 }*/
 		br.close();
 		fr.close();
 	}
@@ -40,7 +50,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\Bean2.0\\" + id + ".txt");
+		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\fasta\\" + id + ".txt");
 		if(!out.exists())
 		{
 			
@@ -48,7 +58,7 @@ public class DownldProtSeq
 			FileWriter fw = new FileWriter(out);
 			BufferedWriter bw = new BufferedWriter(fw);
 			//String url="http://www.ncbi.nlm.nih.gov/protein/"+id+"?report=fasta";
-			String url = "http://www.uniprot.org/uniprot/" + id +".txt";
+			String url = "http://www.uniprot.org/uniprot/" + id +".fasta";
 			System.out.println(url);
 			URL U = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection)U.openConnection();

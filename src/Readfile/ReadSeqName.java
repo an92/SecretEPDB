@@ -14,11 +14,11 @@ public class ReadSeqName {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 String name=null;
-		 File file = new File("F:\\Google Drive\\SecretEPDB\\NewData\\T3SE\\24391954(T3SP)_seq.txt");
+		 File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\T3SEdb_seq.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\Google Drive\\SecretEPDB\\NewData\\T3SE\\24391954(T3SP).fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\T3SEdb.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
