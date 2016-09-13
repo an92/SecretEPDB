@@ -14,8 +14,8 @@ import java.util.HashMap;
  */
 public class Readfile {
 	public static void main(String[] args) throws Exception {
-		File file1 = new File("C:\\Users\\yia\\Downloads\\T6_effectpr_SERCT6.fasta");
-		File file2 = new File("C:\\Users\\yia\\Google 云端硬盘\\Server_Paper\\data\\dabase_data\\all_T6.txt");
+		File file1 = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T4SE\\tex.txt");
+		File file2 = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T4SE\\text.txt");
 		read(file1,file2);
 	}
 	
@@ -29,7 +29,7 @@ public class Readfile {
 		HashMap<String, String> texts;
 		int i=0,j=0;
 		 out = new PrintStream(new
-		 FileOutputStream("C:\\Users\\yia\\Google 云端硬盘\\findsame.txt"));
+		 FileOutputStream("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T4SE\\text_1.txt"));
 		try {
 			in1 = new BufferedReader(new FileReader(f1));
 			in2 = new BufferedReader(new FileReader(f2));

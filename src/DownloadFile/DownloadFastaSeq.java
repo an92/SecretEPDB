@@ -16,7 +16,7 @@ public class DownloadFastaSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\Bean2.0.txt");
+		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\19390696_seq.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
