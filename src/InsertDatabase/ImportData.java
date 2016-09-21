@@ -12,12 +12,12 @@ public class ImportData {
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="C:/Users/yia/Google Drive/appendUniprot/";
+    	    String filepath="F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/T6/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    
@@ -164,7 +164,7 @@ public class ImportData {
 */                       // System.out.println(organism);//表protein中Organism的值
                         //System.out.println(gene);//表protein中Gene的值                                                               		
          			  sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T\")";
+         						+ "(\""+ uniprotId +"\",\""+name+"\",\""+evidence+"\",\""+molecalarweight+"\",\""+function+"\",\""+sequence+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6SE\")";
          				stmt.execute(sql);
                  		// br.close();
                  }	    	    

@@ -16,14 +16,14 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\19390696_seq.txt");
+		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\T4_uniprot_seq.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
 		while(str!=null)
 		{
 			//str = str.trim();
-			String[] id1=str.split("\r");
+			String[] id1=str.split(",");
 			//String id = str.split("\t");
 			//System.out.println(id);
 			for(int i=0;i<id1.length;i++){
@@ -40,7 +40,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\19390696\\" + id + ".txt");
+		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\T4\\" + id + ".txt");
 		if(!out.exists())
 		{
 			

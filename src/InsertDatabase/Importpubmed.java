@@ -12,7 +12,7 @@ public class Importpubmed {
 		 String driver = "com.mysql.jdbc.Driver";
  	    String url = "jdbc:mysql://localhost:3306/secretepdb";
  	    String username = "root";
- 	    String password = "admin";
+ 	    String password = "";
  	    Connection conn = null;
  	    Statement stmt = null;  	    
 		String seq = "";
@@ -26,9 +26,10 @@ public class Importpubmed {
 	     String gene="";
 	     String function="";
 	     String uniprotId="";
+	     String DB_id="";
 		BufferedReader br = null;
 		int line = 0;
-		String filename="C:/Users/yia/Google Drive/append/T6-new_pubmed.txt";
+		String filename="F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/T6_pubmed.txt";
 		 try {       
   		   Class.forName(driver);    
   		   conn = DriverManager.getConnection(url, username, password);
@@ -63,6 +64,7 @@ public class Importpubmed {
 				//System.out.println(strss[j]);
 				int length_1=0;
 				String[] ss=strss[j].split("\\|");
+				DB_id=ss[1]; 
 				seq=ss[7];//sequence
 				//System.out.println(seq);
 				char[] ch = ss[7].toCharArray();
@@ -77,16 +79,19 @@ public class Importpubmed {
 					organism = ss[4].substring(ss[4].indexOf("[")+1, ss[4].indexOf("]"));//organism
 				}
 				else{
-					name=ss[4].substring(0, ss[4].indexOf("RecName:")-1);
+					//name=ss[4].substring(0, ss[4].indexOf("RecName:")-1);
+					name=ss[4].substring(0, ss[4].length());
 				}
 				
 				length= Integer.toString(length_1);
-				System.out.println(name);
-				System.out.println(j);
-				System.out.println(length);
-				System.out.println(seq);
+				//System.out.println(name);
+				//System.out.println(j);
+				//System.out.println(length);
+				//System.out.println(seq);
+				System.out.println(DB_id);
+				
 				sql = "insert into protein(UniprotID,Name,Evidence,MolecularWeight,Function,Sequence,Length,altUniprotACC,DBid,Organism,Gene,allNames,flagType)values"
-  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6_PubMed\")";
+  						+ "(\""+ uniprotId +"\",\""+name+"\",\"\",\""+molecalarweight+"\",\""+function+"\",\""+seq+"\",\""+length+"\",\""+alt+"\",\""+DB_id+"\",\""+organism+"\",\""+gene+"\",\""+names+"\",\"T6SE\")";
   				stmt.execute(sql);
 			}
 			
