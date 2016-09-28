@@ -14,10 +14,10 @@ public class Insertgps {
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="C:\\Users\\yia\\Google Drive\\gps\\";
+    	    String filepath="F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\all_fasta_gps\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

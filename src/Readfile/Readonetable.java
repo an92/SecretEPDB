@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import com.sun.org.apache.bcel.internal.generic.Select;
+
 /**
  * @author yia
  *从数据库中读取某一列数据到文本中
@@ -23,7 +25,7 @@ public class Readonetable {
  	    Statement stmt = null;  	    
 		BufferedReader br = null;
 		String id="";
-		File file = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/Secretepdb_Id_1.txt");
+		File file = new File("F:/yia/Google Drive/SecretEPDB/SqlFile/pdb_sql.txt");
 		FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		 try {       
@@ -35,12 +37,13 @@ public class Readonetable {
            System.out.print("MYSQL ERROR:" + e.getMessage());
        }
 		try {
-			String sql=("select *from protein");
+			//tring sql=("select *from protein ");
+			String sql =("select * from pdb"  );
 			ResultSet rs = stmt.executeQuery(sql);// 执行SQL语句获得查询结果
 			while(rs.next()){
-				id = rs.getString(2);    // 括号里面是列数，get后面加的是这列的数据
+				id = rs.getString(3);    // 括号里面是列数，get后面加的是这列的数据
 				//System.out.print(id);
-			bw.write(id+",");
+			bw.write(id+"\n");
 			bw.flush();
 			}
 		} catch (Exception e) {

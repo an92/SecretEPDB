@@ -13,13 +13,13 @@ public class InsertPtms {
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
     	    int m=0;
-    	 String filepath="C:/Users/yia/Google 云端硬盘/Server_Paper/data/database_data/T6/T6_uniprot";
+    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

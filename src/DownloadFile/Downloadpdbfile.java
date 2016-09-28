@@ -7,23 +7,24 @@ import java.net.URL;
 
 /**
  * @author yia
- * 从UnipProt 中下载注释的文件，放到一个文件夹中。
+ * 从pdb网站上下载pdb文件。
  *
  */
-public class DownldProtSeq
+public class Downloadpdbfile
 {
 
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\Uniprot_sql.txt");
+		File file = new File("F:/yia/Google Drive/SecretEPDB/SqlFile/pdb_sql.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
+		
 		while(str!=null)
 		{
 			//str = str.trim();
-			String[] id1=str.split("\n");
+			String[] id1=str.split("\r");
 			//String id = str.split("\t");
 			//System.out.println(id);
 			for(int i=0;i<id1.length;i++){
@@ -40,7 +41,7 @@ public class DownldProtSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\" + id + ".txt");
+		File out = new File("F:/yia/Google Drive/SecretEPDB/SqlFile/pdb/" + id + ".pdb");
 		if(!out.exists())
 		{
 			
@@ -48,7 +49,8 @@ public class DownldProtSeq
 			FileWriter fw = new FileWriter(out);
 			BufferedWriter bw = new BufferedWriter(fw);
 			//String url="http://www.ncbi.nlm.nih.gov/protein/"+id+"?report=fasta";
-			String url = "http://www.uniprot.org/uniprot/" + id +".txt";
+			String url = "https://files.rcsb.org/download/"+id+".pdb";
+			//String url = "http://www.uniprot.org/uniprot/" + id +".fasta";
 			System.out.println(url);
 			URL U = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection)U.openConnection();

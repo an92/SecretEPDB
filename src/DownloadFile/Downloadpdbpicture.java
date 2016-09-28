@@ -13,13 +13,13 @@ public class Downloadpdbpicture
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("C:/Users/yia/Data/PDBs/PDBs.txt");
+		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\pdb_sql.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
 		while(str!=null)
 		{
-			String[] id1=str.split(" ");
+			String[] id1=str.split("\n");
 			for(int i=0;i<id1.length;i++){
 				String id=id1[i];
 				downloadPdb(id);				
@@ -34,13 +34,7 @@ public class Downloadpdbpicture
 	public static void downloadPdb(String id) throws Exception
 	{
 		
-		File out = new File("C:/Users/yia/Data/PDBs/PDB_picture/" + id + "");
-		if(!out.exists())
-		{
 			
-			System.out.println(out);
-			FileWriter fw = new FileWriter(out);
-			BufferedWriter bw = new BufferedWriter(fw);
 			String url="http://www.rcsb.org/pdb/images/"+id+"_bio_r_500.jpg";
 			System.out.println(url);
 			URL U = new URL(url);
@@ -48,15 +42,25 @@ public class Downloadpdbpicture
 			connection.connect();			
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line;
-			while ((line = in.readLine())!= null)
-			{
-				bw.write(line + "\n");
-				bw.flush();
-			}
-			bw.close();
-			fw.close();
-			in.close();
-		}
+			InputStream inputStream = connection.getInputStream();   //通过输入流获得图片数据 
+		    byte[] getData = readInputStream(inputStream);     //获得图片的二进制数据 
+		        File imageFile = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\text\\" + id + ".jpg");   
+		        FileOutputStream fos = new FileOutputStream(imageFile);    
+		        fos.write(getData); 
+		        fos.close(); 
+		              
+		    } 
+		      
+       public static  byte[] readInputStream(InputStream inputStream) throws IOException { 
+		        byte[] buffer = new byte[1024]; 
+		        int len = 0; 
+		        ByteArrayOutputStream bos = new ByteArrayOutputStream(); 
+		        while((len = inputStream.read(buffer)) != -1) { 
+		            bos.write(buffer, 0, len); 
+		        } 
+		              
+		        bos.close(); 
+		        return bos.toByteArray(); 
 	}
 	
 }

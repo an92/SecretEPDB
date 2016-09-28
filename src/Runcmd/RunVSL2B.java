@@ -23,7 +23,7 @@ public class RunVSL2B {
 		String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://localhost:3306/secretepdb";
 	    String username = "root";
-	    String password = "admin";
+	    String password = "";
 	    Connection conn = null;
 	    Statement stmt = null;  	    
 	    String sql="";

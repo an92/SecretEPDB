@@ -23,8 +23,8 @@ public class RunBlast {
 		  }
 		 }
 	  public static void main(String[] args) throws SQLException, IOException { 
-		  String filepath="C:/Users/yia/Data/Align_T6";	
-		  String filepath_blast="C:/Users/yia/Data/Blast/T6/";
+		  String filepath="F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/sql_fasta/";	
+		  String filepath_blast="F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/blast/";
 		  File file = new File(filepath);
 		  String name="";
 		  if (file.isDirectory()) {     
@@ -41,9 +41,9 @@ public class RunBlast {
                  	 System.out.println(name);
                  	 String s = null;
                  	 while((s = br.readLine()) != null){     
-            	  	String dir="cmd /c C:\\Users/yia/study/soft/Blast/blast/db/blastp.exe -task blastp -query "+readfile+" -db C:\\Users/yia/study/soft/Blast/blast/db/uniprot_sprot.fasta -evalue 0.0001 -outfmt 7 -out "+filepath_blast+name+".txt";
+            	  	String dir="cmd /c C:\\Users/yia/study/soft/Blast/Blast/db/blastp.exe -task blastp -query "+readfile+" -db C:\\Users/yia/study/soft/Blast/Blast/db/uniprot_sprot.fasta.phr -evalue 0.0001 -outfmt 7 -out "+filepath_blast+name+".txt";
             	  	openExe(dir);
-            	  	//System.out.println(dir);
+            	  	System.out.println(dir);
                  	 }
             	  }
               }

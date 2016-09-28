@@ -43,12 +43,12 @@ public class Insertmutation {
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="C:/Users/yia/Google Drive/appendUniprot/annotation";
+    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

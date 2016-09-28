@@ -1,7 +1,10 @@
 package InsertDatabase;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,16 +14,19 @@ import java.sql.Statement;
  *找到mutation 的KEGG号，并在KEGG数据库上进行查找
  */
 public class Insertpathway {
-    public static void main(String[] args) {       
+    public static void main(String[] args) throws IOException {       
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="C:/Users/yia/Google Drive/appendUniprot/annotation/";
+    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
+    	 File file_path = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\pathway.txt");
+		 FileWriter fw = new FileWriter(file_path.getAbsoluteFile(),true);
+		 BufferedWriter bw = new BufferedWriter(fw);
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);
@@ -70,8 +76,11 @@ public class Insertpathway {
                 			 if(rs.next()){   
                 				 protein_id=rs.getString("ProteinID");
                 	            }
-                			 System.out.println(Integer.parseInt(protein_id));
-                			 System.out.println(pathway2);
+                			 
+                			 bw.write(Integer.parseInt(protein_id)+","+pathway2+"\n");
+        					 bw.flush();
+                			/* System.out.println(Integer.parseInt(protein_id));
+                			 System.out.println(pathway2);*/
                          }
                          }	                        
                  }	    	    

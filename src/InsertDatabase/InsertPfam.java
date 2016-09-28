@@ -37,7 +37,7 @@ public class InsertPfam {
 	  String driver = "com.mysql.jdbc.Driver";
 	   String url = "jdbc:mysql://localhost:3306/secretepdb";
 	    String username = "root";
-	    String password = "admin";
+	    String password = "";
 	    Connection conn = null;
 	    Statement stmt = null;  	    
 	    String uniprotId=null;
@@ -52,13 +52,13 @@ public class InsertPfam {
     } catch (Exception e) {
        System.out.print("MYSQL ERROR:" + e.getMessage());
    }
-	  File file = new File("C:/Users/yia/Google Drive/appendUniprot/ID.txt");
+	  File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\Uniprot_sql.txt");
 		 FileReader fr = new FileReader(file);
 		 BufferedReader br = new BufferedReader(fr);
 		 String str = br.readLine();
 		while(str!=null)
 		{
-			String[] id1=str.split(",");
+			String[] id1=str.split("\n");
 			for(int a=0;a<id1.length;a++){
 				String id=id1[a];
 				length++;
@@ -87,9 +87,10 @@ public class InsertPfam {
 	       				 if(rs.next()){   
 	       					 pfam_id=rs.getString("ProteinID");
 	       		            }
-	       				 sql1="insert into pfam(PfamProteinId,id,type,start,end)values"
+	       				/*sql1="insert into pfam(PfamProteinId,id,type,start,end)values"
 	           					 + "(\""+ Integer.parseInt(pfam_id) +"\",\""+id_1+"\",\""+type+"\",\""+start+"\",\""+end+"\")";
-	           			 stmt.execute(sql1);
+	           			 stmt.execute(sql1);*/
+	           			 
 	       				  System.out.println(Integer.parseInt(pfam_id));
 	       	              System.out.println(type);
 	       	          	  System.out.println(id_1);

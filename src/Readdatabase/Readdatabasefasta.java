@@ -18,10 +18,10 @@ public class Readdatabasefasta {
     	    String driver = "com.mysql.jdbc.Driver";
     	    String url = "jdbc:mysql://localhost:3306/secretepdb";
     	    String username = "root";
-    	    String password = "admin";
+    	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="C:/Users/yia/append-fasta.txt";
+    	    String filepath="F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\GPS_main.txt";
     	    String sql="";
     	    int n=0;
       	    BufferedWriter writer = new BufferedWriter(new FileWriter(new File(filepath), true));

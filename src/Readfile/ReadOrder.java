@@ -11,12 +11,12 @@ public class ReadOrder
 	public static void main(String[] args) throws Exception
 	{
 		
-		 File file = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/Secretepdb.fasta");
+		 File file = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/Secretepdb_T6.fasta");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
-		File file_ori = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/T3_uniprot.fasta");
+		 File file_ori = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/T6_uniprot.fasta");
 		try{
 			@SuppressWarnings("resource")
-			BufferedReader br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\T3_sql.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\T6_Uni_sql.txt"));
 			 String s = null;
 			while((s = br.readLine()) != null){
 					  String ss[] = s.split(",");
