@@ -12,12 +12,16 @@ import java.sql.Statement;
 
 /**
  * @author Ay
- * 写入flag 信息。判断是否存在该文件，输入该字段为0或者1.
+ * 在protein表中写入flag信息。flagclustalW 写入的是判断是否有orthologs 文件， flagClustAln判断是否存在aln文件,若存在，则为1，否则为0.
+ *  * 
+ * 
  */
-public class Readpathname {
+public class Insertflag {
 	public static void main(String[] args) throws IOException { 
-		/*String filepath="C:/Users/yia/Google Drive/append/Aln"; //找到有Aln的文件
-		String file_1="C:/Users/yia/Google Drive/append/flag_fasta.txt";
+		
+		
+		String filepath="C:/Users/yia/Clustal/Aln_clustalw/"; //找到有clustal的文件
+		String file_1="F:/yia/Google Drive/SecretEPDB/SqlFile/Alignment/aln.txt";
 		BufferedWriter writer = new BufferedWriter(new FileWriter(new File(file_1), true));
 		File file = new File(filepath);
 		if (file.isDirectory()) {     
@@ -36,14 +40,14 @@ public class Readpathname {
                   	}
                   }
           writer.close();
-          }*/
+          }
+				
 		String driver = "com.mysql.jdbc.Driver";
 	    String url = "jdbc:mysql://localhost:3306/secretepdb";
 	    String username = "root";
 	    String password = "";
 	    Connection conn = null;
 	    Statement stmt = null;  	    
-	    String filepath="C:/Users/yia/Google Drive/append/flag_clu.txt";
 	    String sql="";
 	    String[] str=null;
 	    int n=0;
@@ -56,12 +60,12 @@ public class Readpathname {
          System.out.print("MYSQL ERROR:" + e.getMessage());
      }
 	 try{
-		 BufferedReader br = new BufferedReader(new FileReader(filepath));
+		 BufferedReader br = new BufferedReader(new FileReader(file_1));
 		 String s = null;
 		 while((s = br.readLine()) != null){
 				  str = s.split(",");
 		 }  
-		 sql="update protein set flagClustAln=0 where ProteinID > 1124";
+		 sql="update protein set flagClustAln=0";
     	 boolean rs = stmt.execute(sql);
 		 for(int j=0;j<str.length;j++){
 			sql="update protein set flagClustAln=1 where ProteinID=\""+str[j]+"\";";

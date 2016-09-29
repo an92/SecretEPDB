@@ -18,8 +18,9 @@ public class ReadSeqName {
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\T4_uniprot.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\reference.txt"));
 			 String s = null;
+			 System.out.print(s);
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 String ss[]=s.split("\\|");

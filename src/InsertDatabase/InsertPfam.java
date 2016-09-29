@@ -15,7 +15,7 @@ import org.jsoup.select.Elements;
 
   /**
  * @author yia
- *写入pfam
+ *写入pfam,此程序會出現時間超時情況，要寫入pfam表，應該使用InsertpfamFile程序。
  */
 public class InsertPfam {
      public  Document getDocument (String url){
