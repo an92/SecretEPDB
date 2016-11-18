@@ -10,16 +10,16 @@ import java.io.InputStreamReader;
 
 /**
  * @author yia
- *该程序是读出Genome文件中蛋白质的信息
+ *该程序是读出Genome文件中蛋白质的信息,部分annotation信息
  */
 public class ReadGenome {
 	public static void main(String[] args) throws IOException {       
     	   BufferedReader br = null;
-    	   File file = new File("F:\\Google Drive\\Information\\Genome-Jon\\B5055.fasta");
+    	   File file = new File("F:\\yia\\Google Drive\\Circos\\data\\B5055.fasta");
     	   FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
     	   BufferedWriter bw = new BufferedWriter(fw);
     	    		 try{
-    	    			 File f = new File("F:\\Google Drive\\Information\\Genome-Jon\\B5055 genome.gbk");
+    	    			 File f = new File("F:\\yia\\Google Drive\\Bastion4\\Genome\\AJ218 genome.gbk");
     	    				FileInputStream fin;
     	    				fin = new FileInputStream(f);
     	    				InputStreamReader inputStreamReader = new InputStreamReader(fin);
@@ -57,11 +57,11 @@ public class ReadGenome {
     	    	    					inference_1=inference_1.substring(0, inference_1.indexOf("\""));
     	    	    				}
     	    						System.out.println(s);
-    	    						bw.write(">"+locus_tag+"|"+inference+"|"+inference_1+"|");
+    	    						/*bw.write(">"+locus_tag+"|"+inference+"|"+inference_1+"|");
     	    						bw.newLine();
     	    						bw.write(sequence);
     	    						bw.newLine();
-    	    						bw.flush();
+    	    						bw.flush();*/
     	    						//System.out.println(inference);
     	    						//System.out.println(inference_1);
     	    						//System.out.println(s.substring(s.lastIndexOf("CDS"),s.indexOf("Big")));

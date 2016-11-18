@@ -7,25 +7,22 @@ import java.io.FileWriter;
 
 /**
  * @author yia
- * 读取文件种的Sequence的名称
+ * 读取Genome中的注释信息，也就是每一个序列的第一行信息
  *
  */
-public class ReadSeqName {
+public class Readannotion {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
-		 String name=null;
-		 File file = new File("F:\\yia\\Google Drive\\Circos\\data\\AJ218_name.fasta");
+		 File file = new File("F:\\yia\\Google Drive\\Bastion4\\Genome\\SignalP\\SignalP3.0\\MGH78578.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\Circos\\data\\AJ218_T4SE_NonSignalP.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\Bastion4\\Genome\\SignalP\\SignalP3.0\\MGH78578_T4SE_NonSignalP.fasta"));
 			 String s = null;
 			 System.out.print(s);
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
-					 String ss[]=s.split("\\|");
-					 String name_seq=ss[0];
-					 bw.write(name_seq+"\n\r");
+					 bw.write(s+"\n\r");
 					 bw.flush();
 				 }
 				 /*else if(s.startsWith(">")){

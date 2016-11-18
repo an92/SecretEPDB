@@ -21,7 +21,7 @@ public class Readnextline {
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("C:\\Users\\yia\\Google Drive\\BIB\\data\\T6_over.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
