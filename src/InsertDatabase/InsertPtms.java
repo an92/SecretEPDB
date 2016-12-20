@@ -19,7 +19,7 @@ public class InsertPtms {
     	    String sql=null; 
     	    String sql1=null;
     	    int m=0;
-    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
+    	 String filepath="F:\\yia\\txt\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

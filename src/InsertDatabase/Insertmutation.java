@@ -48,7 +48,7 @@ public class Insertmutation {
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
+    	 String filepath="F:\\yia\\txt\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

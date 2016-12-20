@@ -1,4 +1,4 @@
-package Readfile;
+package Readdatabase;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,14 +18,14 @@ public class Readonetable {
 
 	public static void main(String[] args) throws Exception {
 		 String driver = "com.mysql.jdbc.Driver";
- 	    String url = "jdbc:mysql://localhost:3306/old";
+ 	    String url = "jdbc:mysql://localhost:3306/secretepdb";
  	    String username = "root";
  	    String password = "";
  	    Connection conn = null;
  	    Statement stmt = null;  	    
 		BufferedReader br = null;
 		String id="";
-		File file = new File("F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/aln_1.txt");
+		File file = new File("F:/yia/Google Drive/SecretEPDB/NewData/NCBI_id.txt");
 		FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		BufferedWriter bw = new BufferedWriter(fw);
 		 try {       
@@ -41,7 +41,7 @@ public class Readonetable {
 			String sql =("select * from protein"  );
 			ResultSet rs = stmt.executeQuery(sql);// 执行SQL语句获得查询结果
 			while(rs.next()){
-				id = rs.getString(15);    // 括号里面是列数，get后面加的是这列的数据
+				id = rs.getString(10);    // 括号里面是列数，get后面加的是这列的数据
 				//System.out.print(id);
 			bw.write(id+"\n");
 			bw.flush();

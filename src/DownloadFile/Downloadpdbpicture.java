@@ -13,7 +13,7 @@ public class Downloadpdbpicture
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\pdb_sql.txt");
+		File file = new File("F:\\yia\\pdb_id.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -44,7 +44,7 @@ public class Downloadpdbpicture
 			String line;
 			InputStream inputStream = connection.getInputStream();   //通过输入流获得图片数据 
 		    byte[] getData = readInputStream(inputStream);     //获得图片的二进制数据 
-		        File imageFile = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\text\\" + id + ".jpg");   
+		        File imageFile = new File("F:\\pdb\\" + id + ".jpg");   
 		        FileOutputStream fos = new FileOutputStream(imageFile);    
 		        fos.write(getData); 
 		        fos.close(); 

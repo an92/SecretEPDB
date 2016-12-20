@@ -23,8 +23,8 @@ public class Insertpathway {
     	    Statement stmt = null; 
     	    String sql=null; 
     	    String sql1=null;
-    	 String filepath="F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\";
-    	 File file_path = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\pathway.txt");
+    	 String filepath="F:\\yia\\txt\\";
+    	 File file_path = new File("F:\\yia\\pathway.txt");
 		 FileWriter fw = new FileWriter(file_path.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
     	 try {       

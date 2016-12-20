@@ -17,7 +17,7 @@ public class ImportData {
     	    Statement stmt = null;  	    
     	     String func=null;    	     
     	     String uniprotId=null;
-    	    String filepath="F:/yia/Google Drive/SecretEPDB/NewData/MysqlFile/T6/";
+    	    String filepath="F:/yia/txt/";
     	    String sql="";
     	 try {       
     		   Class.forName(driver);    

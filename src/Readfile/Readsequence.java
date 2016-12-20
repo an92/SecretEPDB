@@ -15,25 +15,28 @@ public class Readsequence {
 		 BufferedReader br = null;
 		 int m = 0;
 		 String sequence=null;
-		 File file = new File("F:\\Google Drive\\Bastion4\\Non-Legionella-C-50.fasta");
+		 File file = new File("F:\\yia\\T4_N.txt");
 		 //File file = new File("F:\\Google Drive\\Bastion4\\Coxiella burnetii-N-50.fasta");
 
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\Google Drive\\Bastion4\\Non-Legionella.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T4SE.fasta"));
 
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 sequence=br.readLine();
-					 int length=sequence.length();
-					 String seq=sequence.substring(length-50,length);
-					 //String seq=sequence.substring(0,50);
-					 bw.write(seq);
-					 bw.newLine();
-					 bw.flush();
+					 if(sequence.length()>=50){
+						 /*int length=sequence.length();
+						 String seq=sequence.substring(length-50,length);*/
+						String seq=sequence.substring(0,50);
+						 bw.write(seq);
+						 bw.newLine();
+						 bw.flush();
+					 }
+					
 				 }
 			 }
 			 /*if(s.startsWith(" ")){

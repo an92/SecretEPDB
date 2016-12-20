@@ -17,7 +17,7 @@ public class Insertgps {
     	    String password = "";
     	    Connection conn = null;
     	    Statement stmt = null;  	    
-    	    String filepath="F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\all_fasta_gps\\";
+    	    String filepath="F:\\gps\\";
     	 try {       
     		   Class.forName(driver);    
     		   conn = DriverManager.getConnection(url, username, password);

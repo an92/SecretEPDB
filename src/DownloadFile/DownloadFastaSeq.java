@@ -16,7 +16,7 @@ public class DownloadFastaSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\T3_MM.txt");
+		File file = new File("C:\\Users\\407\\Desktop\\BIBFile\\P.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -24,7 +24,7 @@ public class DownloadFastaSeq
 		while(str!=null)
 		{
 			//str = str.trim();
-			String[] id1=str.split("\r");
+			String[] id1=str.split("\n\r");
 			//String id = str.split("\t");
 			//System.out.println(id);
 			for(int i=0;i<id1.length;i++){
@@ -50,7 +50,7 @@ public class DownloadFastaSeq
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE\\" + id + ".txt");
+		File out = new File("C:\\Users\\407\\Desktop\\BIBFile\\P\\" + id + ".txt");
 		if(!out.exists())
 		{
 			

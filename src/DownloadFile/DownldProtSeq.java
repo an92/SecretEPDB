@@ -7,7 +7,7 @@ import java.net.URL;
 
 /**
  * @author yia
- * 从UnipProt 中下载注释的文件，放到一个文件夹中。
+ * 从Genbank中找到有pdb 文件的id号。
  *
  */
 public class DownldProtSeq
@@ -16,19 +16,16 @@ public class DownldProtSeq
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\Uniprot_sql.txt");
+		File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\NCBI_id.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
 		while(str!=null)
 		{
-			//str = str.trim();
-			String[] id1=str.split("\n");
-			//String id = str.split("\t");
-			//System.out.println(id);
+			String[] id1=str.split("\r\n");
 			for(int i=0;i<id1.length;i++){
 				String id=id1[i];
-				downloadFasta(id);				
+				downloadpdb(id);				
 				System.out.println(i);
 				str = br.readLine();
 			}
@@ -37,28 +34,35 @@ public class DownldProtSeq
 		fr.close();
 	}
 
-	public static void downloadFasta(String id) throws Exception
+	public static void downloadpdb(String id) throws Exception
 	{
 		
-		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\MysqlFile\\Annoationfile\\" + id + ".txt");
+		File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\NCBI_id_pdb.txt");
 		if(!out.exists())
 		{
 			
+			int n=0;
 			System.out.println(out);
 			FileWriter fw = new FileWriter(out);
 			BufferedWriter bw = new BufferedWriter(fw);
-			//String url="http://www.ncbi.nlm.nih.gov/protein/"+id+"?report=fasta";
-			String url = "http://www.uniprot.org/uniprot/" + id +".txt";
+			String url="https://www.ncbi.nlm.nih.gov/protein/"+id+"";
 			System.out.println(url);
 			URL U = new URL(url);
 			HttpURLConnection connection = (HttpURLConnection)U.openConnection();
 			connection.connect();			
 			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			String line;
+			String pdb=null;
 			while ((line = in.readLine())!= null)
 			{
-				bw.write(line + "\n");
-				bw.flush();
+				if(line.contains("<div>PDB:")){
+					pdb=line.substring(line.indexOf("<div>PDB")+2,line.indexOf("</div>"));
+				}
+				System.out.println(line);
+				n++;
+				System.out.println(n);
+				//bw.write(pdb + "\n");
+				//bw.flush();
 			}
 			bw.close();
 			fw.close();

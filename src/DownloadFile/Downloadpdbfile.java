@@ -16,7 +16,7 @@ public class Downloadpdbfile
 	public static void main(String[] args) throws Exception
 	{
 		// TODO Auto-generated method stub
-		File file = new File("F:/yia/Google Drive/SecretEPDB/SqlFile/pdb_sql.txt");
+		File file = new File("F:/yia/pdb_id.txt");
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String str = br.readLine();
@@ -41,7 +41,7 @@ public class Downloadpdbfile
 	public static void downloadFasta(String id) throws Exception
 	{
 		
-		File out = new File("F:/yia/Google Drive/SecretEPDB/SqlFile/pdb/" + id + ".pdb");
+		File out = new File("F:/yia/pdb_pdb/" + id + ".pdb");
 		if(!out.exists())
 		{
 			

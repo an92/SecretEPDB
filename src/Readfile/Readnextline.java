@@ -16,12 +16,12 @@ public class Readnextline {
 		 int m = 0;
 		 String ss=null;
 		 String seq=null;
-		 File file = new File("C:\\Users\\yia\\Google Drive\\BIB\\data\\T6_over_fasta.txt");
+		 File file = new File("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T6.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 String[] aa=null;
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T3SE.fasta"));
+			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\SecretEPDB\\NewData\\T6SE.fasta"));
 			 String s = null;
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){

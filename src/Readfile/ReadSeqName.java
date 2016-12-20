@@ -14,17 +14,18 @@ public class ReadSeqName {
 	 public static void main(String[] args) throws Exception{
 		 BufferedReader br = null;
 		 String name=null;
-		 File file = new File("F:\\yia\\Google Drive\\Circos\\data\\AJ218_name.fasta");
+		 File file = new File("C:\\Users\\407\\Desktop\\BIBFile\\合并所有工具的训练集\\P.txt");
 		 FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
 		 BufferedWriter bw = new BufferedWriter(fw);
 		 try{
-			 br = new BufferedReader(new FileReader("F:\\yia\\Google Drive\\Circos\\data\\AJ218_T4SE_NonSignalP.fasta"));
+			 br = new BufferedReader(new FileReader("C:\\Users\\407\\Desktop\\BIBFile\\合并所有工具的训练集\\T3SE_P.fasta"));
 			 String s = null;
 			 System.out.print(s);
 			 while((s = br.readLine()) != null){
 				 if(s.startsWith(">")){
 					 String ss[]=s.split("\\|");
 					 String name_seq=ss[0];
+					 //bw.write(s+"\n\r");
 					 bw.write(name_seq+"\n\r");
 					 bw.flush();
 				 }

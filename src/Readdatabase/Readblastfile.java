@@ -32,7 +32,7 @@ public class Readblastfile {
 								 id=str[0];//这是数据库 的ID号。
 								 System.out.println(id);
 								 //System.out.println(str[5]);
-								 File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\Alignment\\orthologs\\" + id + ".txt");
+								 File out = new File("F:\\yia\\Google Drive\\SecretEPDB\\SqlFile\\orthologs\\" + id + ".txt");
 								 FileWriter fw = new FileWriter(out,true);
 								 BufferedWriter bw = new BufferedWriter(fw);
 								 if(!out.exists())
